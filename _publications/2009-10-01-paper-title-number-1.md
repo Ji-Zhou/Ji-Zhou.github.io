@@ -1,5 +1,5 @@
 ---
-title: "Published on Journal of Cleaner production"
+title: "Published on Journal of Cleaner production"  
 Ji Zhou, Senyan Yang, Hui Feng, Zexu An, “Multi-echelon sustainable reverse logistics network design with incentive mechanism for eco-packages”, Journal of Cleaner Production. https://doi.org/10.1016/j.jclepro.2023.139500.
 ---
 
