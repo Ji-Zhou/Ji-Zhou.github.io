@@ -22,7 +22,7 @@ repository               : "academicpages/academicpages.github.io"
 author:
   # Biographic information
   avatar           : "照片.png"
-  name             : "JiZhou"
+  name             : "Ji Zhou"
   pronouns         : # example: "she/her"  
   bio              : "Be your best"
   location         : "Earth"
@@ -32,7 +32,7 @@ author:
 
   # Academic websites
   Scupus    : "https://www.scopus.com/authid/detail.uri?authorId=58202011000"
-  orcid            : "https://orcid.org/0000-0001-9173-1746"
+  Orcid            : "https://orcid.org/0000-0001-9173-1746"
 
   # Repositories and software development
   bitbucket        : # Username - Update with your username on the site
