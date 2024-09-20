@@ -2,7 +2,6 @@
 title: "JCLP"
 collection: publications
 category: manuscripts
-permalink: /publication/2010-10-01-paper-title-number-2
 excerpt: 'Ji Zhou, Senyan Yang, Hui Feng, Zexu An, “Multi-echelon sustainable reverse logistics network design with incentive mechanism for eco-packages”, Journal of Cleaner Production. https://doi.org/10.1016/j.jclepro.2023.139500.'
 ---
 
