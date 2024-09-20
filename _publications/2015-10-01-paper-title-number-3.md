@@ -2,7 +2,6 @@
 title: "Paper Title Number 3"
 collection: publications
 category: manuscripts
-permalink: /publication/2015-10-01-paper-title-number-3
 excerpt: 'Yuliang Zhan, Ji Zhou, Jiayi Zhang, “Attention-based 3DTCN-LSTM short-term network traffic prediction model considering multi-base station spatiotemporal coupling”, International Journal of Web Engineering and Technology. https://doi.org/10.1504/ijwet.2022.129253'
 ---
 
