@@ -18,15 +18,24 @@ Current Works
 
 News
 ======
-· [2024/06] Received my B.Eng. degree from School of Automation, Beijing University of Posts and Telecommunications.  
-· [2023/12] [One paper](https://www.sciencedirect.com/science/article/pii/S0959652623036582) on multi-echelon logistics network design accepted to JCLP.  
-· [2023/08] One work won the Excellent Award in SF-X Intelligent Supply Chain Challenge Competition, and pass qualification for campus recruitment.  
-· [2023/07] Oral presentation at the 18th International Conference on Service Systems and Service Management held at Southeast University.  
-· [2023/06] One work won the Special Prize in "Challenge Cup" Beijing College Student Extracurricular Academic Works 
- Competition.  
-· [2023/05] One work won the National Third Prize in National College Student Transportation Technology Competition held at Jiangmen University.  
-· [2023/05] One work won the National Special Prize and National First Prize in National College Student Competition On Energy Economis held at Shanghai Jiaotong University.  
-· [2023/04] Two works won the National Gold Award (Innovative Product) and National Sliver Award (Process Optimization) in National "Internet +" Express Industry Innovation and Entrepreneurship Competition.  
-· [2022/11] [One paper](https://www.inderscience.com/info/inarticle.php?artid=129253) on traffic prediction accepted to IJWET.
-· [2022/09] One software copyright was approved.  
-· [2022/01] I was selected as a volunteer for the Beijing Winter Olympics and Paralympics.  
+[2024/06] Received my B.Eng. degree from School of Automation, Beijing University of Posts and Telecommunications.  
+
+[2023/12] [One paper](https://www.sciencedirect.com/science/article/pii/S0959652623036582) on multi-echelon logistics network design accepted to JCLP.  
+
+[2023/08] One work won the Excellent Award in SF-X Intelligent Supply Chain Challenge Competition, and pass qualification for campus recruitment.  
+
+[2023/07] Oral presentation at the 18th International Conference on Service Systems and Service Management held at Southeast University.  
+
+[2023/06] One work won the Special Prize in "Challenge Cup" Beijing College Student Extracurricular Academic Works Competition. 
+
+[2023/05] One work won the National Third Prize in National College Student Transportation Technology Competition held at Jiangmen University.  
+
+[2023/05] One work won the National Special Prize and National First Prize in National College Student Competition On Energy Economis held at Shanghai Jiaotong University.  
+
+[2023/04] Two works won the National Gold Award (Innovative Product) and National Sliver Award (Process Optimization) in National "Internet +" Express Industry Innovation and Entrepreneurship Competition.  
+
+[2022/11] [One paper](https://www.inderscience.com/info/inarticle.php?artid=129253) on traffic prediction accepted to IJWET.
+
+[2022/09] One software copyright was approved.  
+
+[2022/01] I was selected as a volunteer for the Beijing Winter Olympics and Paralympics.  
