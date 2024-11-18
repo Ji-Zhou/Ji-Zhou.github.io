@@ -9,15 +9,17 @@ redirect_from:
 
 I am an incoming Ph.D. student in the [Department of Civil Engineering](https://www.monash.edu/engineering/departments/civil) at Monash University, supervised by [Prof.Nan Zheng](https://www.monash.edu/engineering/nanzheng#about). I received my B.Eng. degree from School of Automation, Beijing University of Posts and Telecommunications in 2024, supervised by [Prof.Senyan Yang](https://teacher.bupt.edu.cn/yangsenyan1/zh_CN/index.htm).
 
-My current research focuses on the design and optimization of intelligent transportation systems, including location and routing problem, scheduling and planning for complex systems, planning and control for autonomous vehicles. I pursue intelligent decision-making based on model-driven and data-driven methods, such as nonlinear programming, heuristic search, reinforcement learning and combinatorial algorithms. Data analysis and simulation are also essential tools in my research.(Last updated 1/9/2024)
+My current research focuses on the design and optimization of intelligent transportation systems, including location and routing problem, scheduling and planning for complex systems, planning and control for autonomous vehicles. I pursue intelligent decision-making based on model-driven and data-driven methods, such as nonlinear programming, heuristic search, reinforcement learning and combinatorial algorithms. Data analysis and simulation are also essential tools in my research.(Last updated 1/11/2024)
 
 Current Works
 ======
-· Multi-vehicles motion planning  
+· Multi-vehicles motion planning (Algorithms Design, 3D Simulation)
 · Last-mile delivery with smart modular parcel lockers
 
 News
 ======
+[2024/10] One work won the Third Prize in China Logistics Academic Annual Conference.  
+
 [2024/06] Received my B.Eng. degree from School of Automation, Beijing University of Posts and Telecommunications.  
 
 [2023/12] [One paper](https://www.sciencedirect.com/science/article/pii/S0959652623036582) on multi-echelon logistics network design accepted to JCLP.  
