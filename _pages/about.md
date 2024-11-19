@@ -13,7 +13,7 @@ My current research focuses on the design and optimization of intelligent transp
 
 Current Works
 ======
-· Multi-vehicles motion planning (Algorithms Design, 3D Simulation)
+· Multi-vehicles motion planning (Algorithms Design, 3D Simulation)  
 · Last-mile delivery with smart modular parcel lockers
 
 News
