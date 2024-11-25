@@ -20,16 +20,17 @@ News
 ======
 [2024/10] One work won the Third Prize in China Logistics Academic Annual Conference.  
 
-[2024/09] As a key milestone in my life, I want to make a record of my academic progress.  
+[2024/09] As a significant milestone in my life, I want to document my academic progress about PhD application.  
 
-Due to the strong interest cultivated during my undergraduate studies, my confidence in pursuing a doctoral degree has been strengthened. Despite receiving joint recommendations from multiple leaders and experts, due to policy changes, I had to be admitted to BUPT's strong discipline instead of my preferred transportation direction. Therefore, I am seeking some opportunities overseas.  
+My strong interest in transportation and logistics, cultivated during my undergraduate studies, has solidified my confidence in pursuing a doctoral degree. Despite receiving enthusiastic recommendations from multiple leaders and professors, changes in policies led me to be admitted to BUPT's preferential discipline rather than my preferred focus on transportation. This has motivated me to explore opportunities overseas.  
 
+Interestingly, my application span diverse majors, including Computer Science, Electronic Engineering, Industrial Engineering, Civil Engineering, and Management Science. However, they all converge on the domain of transportation and logistics, encompassing topics such as multimodal large language models for transportation, logistics network planning, and autonomous vehicles. The highly interdisciplinary nature of this field is what I enjoy most.  
 
-It is interesting that my application majors span a wide range, including computer science, electronic engineering, industrial engineering, civil engineering, and management science, but they are all focused on the field of transportation and logistics, specifically including multimodal transportation models, logistics network planning, autonomous vehicles, and so on. The high degree of interdisciplinary integration is also the reason why I love this field. Fortunately, I have met many great teachers who are willing to offer me the opportunity to pursue a PhD. I know that providing these opportunities to a student without a master's degree can be challenging.  
+Fortunately, I have met many kind and great professors who are willing to offer me the opportunity to pursue a PhD. I know that providing these opportunities to a student without a master's degree can be challenging. I am grateful, so when I accepted a offer, I terminated the most of my other applications.  
 
-I accepted Monash's offer because of the excellent mentor and interesting research direction.  
-I have given up my admissions to BUPT, Lancaster, and Liverpool.  
-I have terminated potential opportunities in Edinburgh, Hk PolyU, hKUST, Griffith, and Surrey in advance.  
+Accepted: Monash University, due to the excellent supervisor and interesting research area.  
+Give Up: BUPT, Lancaster, and Liverpool  
+Terminated in Advance: Edinburgh, HK-PolyU, HKUST, Griffith, and Surrey.  
 
 [2024/06] Received my B.Eng. degree from School of Automation, Beijing University of Posts and Telecommunications.  
 
