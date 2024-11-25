@@ -7,7 +7,7 @@ redirect_from:
   - /about.html
 ---
 
-I am an incoming Ph.D. student in the [Department of Civil Engineering](https://www.monash.edu/engineering/departments/civil) at Monash University, supervised by [Prof.Nan Zheng](https://www.monash.edu/engineering/nanzheng#about). I received my B.Eng. degree from School of Automation, Beijing University of Posts and Telecommunications in 2024, supervised by [Prof.Senyan Yang](https://teacher.bupt.edu.cn/yangsenyan1/zh_CN/index.htm).
+I am an incoming Ph.D. student in the Department of Civil Engineering at Monash University, supervised by [Prof.Nan Zheng](https://www.monash.edu/engineering/nanzheng#about). I received my B.Eng. degree from School of Automation, Beijing University of Posts and Telecommunications in 2024, supervised by [Prof.Senyan Yang](https://teacher.bupt.edu.cn/yangsenyan1/zh_CN/index.htm).
 
 My current research focuses on the design and optimization of intelligent transportation systems, including location and routing problem, scheduling and planning for complex systems, planning and control for autonomous vehicles. I pursue intelligent decision-making based on model-driven and data-driven methods, such as nonlinear programming, heuristic search, reinforcement learning and combinatorial algorithms. Data analysis and simulation are also essential tools in my research.(Last updated 1/11/2024)
 
@@ -19,6 +19,17 @@ Current Works
 News
 ======
 [2024/10] One work won the Third Prize in China Logistics Academic Annual Conference.  
+
+[2024/09] As a key milestone in my life, I want to make a record of my academic progress.  
+
+Due to the strong interest cultivated during my undergraduate studies, my confidence in pursuing a doctoral degree has been strengthened. Despite receiving joint recommendations from multiple leaders and experts, due to policy changes, I had to be admitted to BUPT's strong discipline instead of my preferred transportation direction. Therefore, I am seeking some opportunities overseas.  
+
+
+It is interesting that my application majors span a wide range, including computer science, electronic engineering, industrial engineering, civil engineering, and management science, but they are all focused on the field of transportation and logistics, specifically including multimodal transportation models, logistics network planning, autonomous vehicles, and so on. The high degree of interdisciplinary integration is also the reason why I love this field. Fortunately, I have met many great teachers who are willing to offer me the opportunity to pursue a PhD. I know that providing these opportunities to a student without a master's degree can be challenging.  
+
+I accepted Monash's offer because of the excellent mentor and interesting research direction.  
+I have given up my admissions to BUPT, Lancaster, and Liverpool.  
+I have terminated potential opportunities in Edinburgh, Hk PolyU, hKUST, Griffith, and Surrey in advance.  
 
 [2024/06] Received my B.Eng. degree from School of Automation, Beijing University of Posts and Telecommunications.  
 
