@@ -26,7 +26,7 @@ My deep interest in transportation and logistics, nurtured during my undergradua
 
 Interestingly, my applications span a wide range of disciplines, including Computer Science, Electronic Engineering, Industrial Engineering, Civil Engineering, and Management Science. Yet, they all converge on the domain of transportation and logistics, covering topics such as multimodal large language models for transportation, logistics network planning, and autonomous vehicles. The highly interdisciplinary nature of this field is what excites me the most.  
 
-I am fortunate to have encountered many kind and inspiring professors who are willing to offer me the opportunity to pursue a PhD. I understand that extending such opportunities to a student without a master’s degree can be challenging, and I am deeply grateful for their trust. Thus, I made the decision to withdraw most of my other applications to focus on the exciting journey ahead and vacate the opportunity after accepting Monash's offer.  
+I am fortunate to have encountered many kind and inspiring professors who are willing to offer me the opportunity to pursue a PhD. I understand that extending such opportunities to a student without a master’s degree can be challenging, and I am deeply grateful for their trust. Thus, after accepting the Monash's offer, I made the decision to withdraw most of my other applications to focus on the exciting journey ahead and vacate their admission opportunities.  
 
 Accepted: Monash University, due to the nice supervisor and interesting research area.  
 GiveUp: BUPT, Lancaster University, and Liverpool University.  
