@@ -20,13 +20,13 @@ News
 ======
 [2024/10] One work won the Third Prize in China Logistics Academic Annual Conference.  
 
-[2024/09] As a significant milestone in my life, I want to document my academic progress about PhD application.  
+[2024/09] As a significant milestone in my life, I want to document my academic journey in applying for a PhD.  
 
-My strong interest in transportation and logistics, cultivated during my undergraduate studies, has solidified my confidence in pursuing a doctoral degree. Despite receiving enthusiastic recommendations from multiple leaders and professors, changes in policies led me to be admitted to BUPT's preferential discipline rather than my preferred focus on transportation. This has motivated me to explore opportunities overseas.  
+My deep interest in transportation and logistics, nurtured during my undergraduate studies, has strengthened my confidence in pursuing a doctoral degree. Despite receiving enthusiastic recommendations from several esteemed professors and leaders, policy changes resulted in my admission to BUPT’s preferential discipline rather than my desired focus on transportation. This motivated me to explore opportunities overseas.  
 
-Interestingly, my application span diverse majors, including Computer Science, Electronic Engineering, Industrial Engineering, Civil Engineering, and Management Science. However, they all converge on the domain of transportation and logistics, encompassing topics such as multimodal large language models for transportation, logistics network planning, and autonomous vehicles. The highly interdisciplinary nature of this field is what I enjoy most.  
+Interestingly, my applications span a wide range of disciplines, including Computer Science, Electronic Engineering, Industrial Engineering, Civil Engineering, and Management Science. Yet, they all converge on the domain of transportation and logistics, covering topics such as multimodal large language models for transportation, logistics network planning, and autonomous vehicles. The highly interdisciplinary nature of this field is what excites me the most.  
 
-Fortunately, I have met many kind and great professors who are willing to offer me the opportunity to pursue a PhD. I know that providing these opportunities to a student without a master's degree can be challenging. I am grateful, so when I accepted a offer, I terminated the most of my other applications.  
+I am fortunate to have encountered many kind and inspiring professors who are willing to offer me the opportunity to pursue a PhD. I understand that extending such opportunities to a student without a master’s degree can be challenging, and I am deeply grateful for their trust. After accepting an offer, I made the decision to withdraw most of my other applications to focus on the exciting journey ahead.  
 
 Accepted: Monash University, due to the excellent supervisor and interesting research area.  
 Give Up: BUPT, Lancaster, and Liverpool  
