@@ -29,8 +29,8 @@ Interestingly, my applications span a wide range of disciplines, including Compu
 I am fortunate to have encountered many kind and inspiring professors who are willing to offer me the opportunity to pursue a PhD. I understand that extending such opportunities to a student without a master’s degree can be challenging, and I am deeply grateful for their trust. After accepting an offer, I made the decision to withdraw most of my other applications to focus on the exciting journey ahead.  
 
 Accepted: Monash University, due to the excellent supervisor and interesting research area.  
-Give Up: BUPT, Lancaster, and Liverpool  
-Terminated in Advance: Edinburgh, HK-PolyU, HKUST, Griffith, and Surrey.  
+GiveUp: BUPT, Lancaster, and Liverpool  
+Terminated: Edinburgh, HK-PolyU, HKUST, Griffith, and Surrey.  
 
 [2024/06] Received my B.Eng. degree from School of Automation, Beijing University of Posts and Telecommunications.  
 
