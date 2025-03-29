@@ -63,6 +63,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Function to add a journal paper
 function addJournalPaper(container, paper) {
+    // Process description to make specific words bold
+    let processedDescription = paper.description;
+    
+    // If boldWords array is provided in the paper object, make those words bold
+    if (paper.boldWords && Array.isArray(paper.boldWords)) {
+        paper.boldWords.forEach(word => {
+            const regex = new RegExp(`\\b${word}\\b`, 'g');
+            processedDescription = processedDescription.replace(regex, `<strong>${word}</strong>`);
+        });
+    }
+    
     const paperElement = document.createElement('div');
     paperElement.className = 'paper-item';
     paperElement.innerHTML = `
@@ -71,7 +82,7 @@ function addJournalPaper(container, paper) {
             <h4>${paper.title}</h4>
             <p>${paper.authors}</p>
             <p>${paper.journal}</p>
-            <p>${paper.description}</p>
+            <p>${processedDescription}</p>
         </div>
     `;
     container.appendChild(paperElement);
@@ -130,7 +141,8 @@ const journalPapers = [
         authors: "Zhou, J., & Zheng, N.",
         journal: "IEEE Transactions on Intelligent Transportation Systems",
         description: "An innovative method for traffic flow prediction using machine learning algorithms.",
-        image: "assets/papers/paper2.jpg"
+        image: "assets/papers/paper2.jpg",
+        boldWords: ["machine learning", "traffic flow"]
     }
 ];
 
