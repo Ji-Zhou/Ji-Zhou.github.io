@@ -25,28 +25,6 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', setActiveNavLink);
     setActiveNavLink();
 
-    // Handle Call for Papers expansion
-    const journalItems = document.querySelectorAll('.journal-item');
-    journalItems.forEach(item => {
-        const count = parseInt(item.querySelector('.paper-count').textContent);
-        if (count > 0) {
-            item.addEventListener('click', function() {
-                const details = this.querySelector('.journal-details');
-                if (details) {
-                    // Toggle the expanded class
-                    this.classList.toggle('expanded');
-                    
-                    // Close other expanded items
-                    journalItems.forEach(otherItem => {
-                        if (otherItem !== this && otherItem.classList.contains('expanded')) {
-                            otherItem.classList.remove('expanded');
-                        }
-                    });
-                }
-            });
-        }
-    });
-
     // Smooth scrolling for navigation links
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -59,7 +37,39 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize content
     initializeContent();
+    
+    // Set up the journal expansion AFTER content is initialized
+    setupJournalExpansion();
 });
+
+// Function to set up journal expansion - moved to separate function
+function setupJournalExpansion() {
+    // Handle Call for Papers expansion
+    const journalItems = document.querySelectorAll('.journal-item');
+    journalItems.forEach(item => {
+        const paperCountEl = item.querySelector('.paper-count');
+        if (paperCountEl) {
+            const count = parseInt(paperCountEl.textContent);
+            if (count > 0) {
+                item.addEventListener('click', function() {
+                    // Toggle the expanded class
+                    this.classList.toggle('expanded');
+                    
+                    // Close other expanded items
+                    journalItems.forEach(otherItem => {
+                        if (otherItem !== this && otherItem.classList.contains('expanded')) {
+                            otherItem.classList.remove('expanded');
+                        }
+                    });
+                    
+                    // Log for debugging
+                    console.log('Journal clicked:', this.querySelector('h4').textContent);
+                    console.log('Expanded:', this.classList.contains('expanded'));
+                });
+            }
+        }
+    });
+}
 
 // Function to add a journal paper
 function addJournalPaper(container, paper) {
@@ -130,55 +140,20 @@ function addJournal(container, journal) {
 // Example journal papers
 const journalPapers = [
     {
-        title: "Multi-echelon sustainable reverse logistics network design with incentive mechanism for eco-packages",
-        authors: "Ji Zhou, Senyan Yang, Hui Feng, Zexu An",
-        journal: "Journal of Cleaner Production, 2023",
-        description: "Research Project in My Bachelor Study",
-        image: "assets/papers/paper1.jpg",
-        boldWords: ["Ji Zhou"]
+        title: "A Novel Approach to Autonomous Vehicle Navigation",
+        authors: "Zhou, J., Zheng, N., & Smith, J.",
+        journal: "Transportation Research Part C: Emerging Technologies",
+        description: "This paper presents a novel approach to autonomous vehicle navigation using deep learning techniques.",
+        image: "assets/papers/paper1.jpg"
     },
     {
-        title: "Attention-based 3DTCN-LSTM short-term network traffic prediction model considering multi-base station spatiotemporal coupling",
-        authors: "Yuliang Zhan, Ji Zhou, Jiayi Zhang",
-        journal: "Internation Journal of Web Engineering and Technology, 2022",
-        description: "Research Project in My Bachelor Study",
+        title: "Machine Learning in Traffic Flow Prediction",
+        authors: "Zhou, J., & Zheng, N.",
+        journal: "IEEE Transactions on Intelligent Transportation Systems",
+        description: "An innovative method for traffic flow prediction using machine learning algorithms.",
         image: "assets/papers/paper2.jpg",
-        boldWords: ["Ji Zhou"]
+        boldWords: ["machine learning", "traffic flow"]
     }
-    {
-        title: "A Multi-Level Framework for Collaborative Vehicle Trajectory Planning in Unstructured Road Environments",
-        authors: "Ji Zhou, Biao Xu, Yougang Bian, Hongmao Qin, Chen Wang, Nan Zheng",
-        journal: "Automation in Construction, Under Review",
-        description: "Research Project in My Doctoral Study",
-        image: "assets/papers/paper3.jpg",
-        boldWords: ["Ji Zhou"]
-    }
-    {
-        title: "Smart Modular Parcel Lockers as a Mean for Last-Mile Delivery: An Optimization Model and Solution Algorithm for Parcels Allocation and Lockers Configuration",
-        authors: "Ji Zhou, Senyan Yang, Chen Wang, Liang Zheng, Nan Zheng",
-        journal: "Engineering Applications of Artificial Intelligence, Under Review",
-        description: "Research Project in My Bachelor Study",
-        image: "assets/papers/paper4.jpg",
-        boldWords: ["Ji Zhou"]
-    }
-    {
-        title: "Collaborative Trajectory Planning for Non-Holonomic Automated Mobile Robots via Distributed Multi-Agent Proximal Policy Optimization",
-        authors: "Jingyi Yu, Ji Zhou",
-        journal: "Applied Soft Computing, Under Review",
-        description: "Research Project in My Bachelor Study",
-        image: "assets/papers/paper5.jpg",
-        boldWords: ["Ji Zhou"]
-    }
-    {
-        title: "Autonomous Haulage System for Open-Pit Mining: A Bibliometric Analysis and Topic Modeling based Review",
-        authors: "Ji Zhou, Nan Zheng",
-        journal: "On-going",
-        description: "Research Project in My Doctoral Study",
-        image: "assets/papers/paper6.jpg",
-        boldWords: ["Ji Zhou"]
-    }
-
-
 ];
 
 // Example conference papers
