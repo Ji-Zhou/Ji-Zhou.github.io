@@ -398,4 +398,54 @@ footer {
 
 .paper-link-btn:active {
     transform: translateY(0);
+}
+
+/* Toggle Button Styles */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.section-header h4 {
+    margin-bottom: 0;
+}
+
+.toggle-section-btn {
+    padding: 6px 12px;
+    background-color: var(--secondary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.toggle-section-btn:hover {
+    background-color: #2980b9;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.toggle-section-btn:active {
+    transform: translateY(0);
+}
+
+/* Add transition for showing/hiding papers */
+.journal-papers,
+.conference-papers {
+    transition: max-height 0.5s ease, opacity 0.3s ease;
+    overflow: hidden;
+}
+
+.journal-papers.hidden,
+.conference-papers.hidden {
+    max-height: 0;
+    opacity: 0;
+    margin: 0;
+    padding: 0;
 } 
