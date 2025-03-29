@@ -230,11 +230,13 @@ h1, h2, h3, h4 {
     opacity: 0;
     max-height: 0;
     overflow: hidden;
+    transform: translateY(-10px);
 }
 
 .journal-item.expanded .journal-details {
     opacity: 1;
-    max-height: 1000px;
+    max-height: 2000px;
+    transform: translateY(0);
 }
 
 .paper-info {
@@ -242,11 +244,25 @@ h1, h2, h3, h4 {
     padding: 1rem;
     background-color: var(--white);
     border-radius: 4px;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateX(-10px);
 }
+
+.journal-item.expanded .paper-info {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.paper-info:nth-child(1) { transition-delay: 0.1s; }
+.paper-info:nth-child(2) { transition-delay: 0.2s; }
+.paper-info:nth-child(3) { transition-delay: 0.3s; }
+.paper-info:nth-child(4) { transition-delay: 0.4s; }
+.paper-info:nth-child(5) { transition-delay: 0.5s; }
 
 .paper-info:hover {
     transform: translateX(5px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .paper-info h5 {
