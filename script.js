@@ -25,6 +25,28 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', setActiveNavLink);
     setActiveNavLink();
 
+    // Handle Call for Papers expansion
+    const journalItems = document.querySelectorAll('.journal-item');
+    journalItems.forEach(item => {
+        const count = parseInt(item.querySelector('.paper-count').textContent);
+        if (count > 0) {
+            item.addEventListener('click', function() {
+                const details = this.querySelector('.journal-details');
+                if (details) {
+                    // Toggle the expanded class
+                    this.classList.toggle('expanded');
+                    
+                    // Close other expanded items
+                    journalItems.forEach(otherItem => {
+                        if (otherItem !== this && otherItem.classList.contains('expanded')) {
+                            otherItem.classList.remove('expanded');
+                        }
+                    });
+                }
+            });
+        }
+    });
+
     // Smooth scrolling for navigation links
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -86,51 +108,22 @@ function addJournal(container, journal) {
     const journalElement = document.createElement('div');
     // Add expandable class if there are papers
     journalElement.className = `journal-item${journal.papers.length > 0 ? ' expandable' : ''}`;
-    
-    // Create header element
-    const headerElement = document.createElement('div');
-    headerElement.className = 'journal-header';
-    headerElement.innerHTML = `
-        <h4>${journal.name}</h4>
-        <span class="paper-count">${journal.papers.length}</span>
+    journalElement.innerHTML = `
+        <div class="journal-header">
+            <h4>${journal.name}</h4>
+            <span class="paper-count">${journal.papers.length}</span>
+        </div>
+        ${journal.papers.length > 0 ? `
+            <div class="journal-details">
+                ${journal.papers.map(paper => `
+                    <div class="paper-info">
+                        <h5>${paper.title}</h5>
+                        <p>${paper.description}</p>
+                    </div>
+                `).join('')}
+            </div>
+        ` : ''}
     `;
-    
-    // Append header to journal element
-    journalElement.appendChild(headerElement);
-    
-    // If journal has papers, create and append details element
-    if (journal.papers.length > 0) {
-        const detailsElement = document.createElement('div');
-        detailsElement.className = 'journal-details';
-        
-        // Add paper info items
-        journal.papers.forEach(paper => {
-            const paperInfoElement = document.createElement('div');
-            paperInfoElement.className = 'paper-info';
-            paperInfoElement.innerHTML = `
-                <h5>${paper.title}</h5>
-                <p>${paper.description}</p>
-            `;
-            detailsElement.appendChild(paperInfoElement);
-        });
-        
-        // Append details to journal element
-        journalElement.appendChild(detailsElement);
-        
-        // Add click event directly to the header
-        headerElement.addEventListener('click', function() {
-            journalElement.classList.toggle('expanded');
-            
-            // Close other expanded items
-            const allJournals = document.querySelectorAll('.journal-item');
-            allJournals.forEach(otherItem => {
-                if (otherItem !== journalElement && otherItem.classList.contains('expanded')) {
-                    otherItem.classList.remove('expanded');
-                }
-            });
-        });
-    }
-    
     container.appendChild(journalElement);
 }
 
@@ -218,53 +211,4 @@ function initializeContent() {
     journals.forEach(journal => {
         addJournal(journalsContainer, journal);
     });
-
-    // Setup click handlers for journals AFTER they've been added to the DOM
-    setupJournalClickHandlers();
-}
-
-// Function to setup journal click handlers
-function setupJournalClickHandlers() {
-    // Our journals now have click handlers added directly in the addJournal function
-    // This function is kept for compatibility but doesn't need to do anything
-    console.log('Journal click handlers already set up directly');
-}
-
-// Function to handle journal click
-function handleJournalClick(event) {
-    const journalItem = this;
-    const details = journalItem.querySelector('.journal-details');
-    
-    console.log('Journal clicked:', journalItem);
-    console.log('Details element:', details);
-    
-    if (!details) {
-        console.log('No details found to show');
-        return; // No details to show
-    }
-    
-    // Toggle expanded class
-    const wasExpanded = journalItem.classList.contains('expanded');
-    console.log('Was expanded before:', wasExpanded);
-    
-    journalItem.classList.toggle('expanded');
-    
-    console.log('Is expanded after:', journalItem.classList.contains('expanded'));
-    console.log('Details display style:', window.getComputedStyle(details).display);
-    
-    // Close other expanded journals
-    const allJournals = document.querySelectorAll('.journal-item');
-    allJournals.forEach(otherItem => {
-        if (otherItem !== journalItem && otherItem.classList.contains('expanded')) {
-            otherItem.classList.remove('expanded');
-        }
-    });
-}
-
-// Update citation count
-function updateCitationCount() {
-    // Implementation of updateCitationCount function
-}
-
-// Update citation count every 24 hours
-setInterval(updateCitationCount, 24 * 60 * 60 * 1000); 
+} 
