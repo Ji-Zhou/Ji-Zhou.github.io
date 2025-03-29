@@ -95,14 +95,15 @@ function addConferencePaper(container, paper) {
 // Function to add a journal with call for papers
 function addJournal(container, journal) {
     const journalElement = document.createElement('div');
-    journalElement.className = 'journal-item';
+    // Add expandable class if there are papers
+    journalElement.className = `journal-item${journal.papers.length > 0 ? ' expandable' : ''}`;
     journalElement.innerHTML = `
         <div class="journal-header">
             <h4>${journal.name}</h4>
             <span class="paper-count">${journal.papers.length}</span>
         </div>
         ${journal.papers.length > 0 ? `
-            <div class="journal-details" style="display: none;">
+            <div class="journal-details">
                 ${journal.papers.map(paper => `
                     <div class="paper-info">
                         <h5>${paper.title}</h5>
