@@ -43,6 +43,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Setup resume download with verification
     setupResumeDownload();
+    
+    // Setup paper section toggle buttons
+    setupPaperSectionToggles();
 });
 
 // Function to attach event listeners to journal items
@@ -421,4 +424,47 @@ function setupResumeDownload() {
                 alert('The resume PDF has not been uploaded yet. Please contact the author to request the resume.');
             });
         });
+}
+
+// Function to setup paper section toggles
+function setupPaperSectionToggles() {
+    // Journal Papers toggle
+    const journalToggleBtn = document.getElementById('toggle-journal-papers');
+    const journalPapersContainer = document.querySelector('.journal-papers');
+    
+    if (journalToggleBtn && journalPapersContainer) {
+        journalToggleBtn.addEventListener('click', function() {
+            const isVisible = !journalPapersContainer.classList.contains('hidden');
+            
+            if (isVisible) {
+                // Currently visible, hide it
+                journalPapersContainer.classList.add('hidden');
+                journalToggleBtn.textContent = 'Show Papers';
+            } else {
+                // Currently hidden, show it
+                journalPapersContainer.classList.remove('hidden');
+                journalToggleBtn.textContent = 'Hide Papers';
+            }
+        });
+    }
+    
+    // Conference Papers toggle
+    const conferenceToggleBtn = document.getElementById('toggle-conference-papers');
+    const conferencePapersContainer = document.querySelector('.conference-papers');
+    
+    if (conferenceToggleBtn && conferencePapersContainer) {
+        conferenceToggleBtn.addEventListener('click', function() {
+            const isVisible = !conferencePapersContainer.classList.contains('hidden');
+            
+            if (isVisible) {
+                // Currently visible, hide it
+                conferencePapersContainer.classList.add('hidden');
+                conferenceToggleBtn.textContent = 'Show Papers';
+            } else {
+                // Currently hidden, show it
+                conferencePapersContainer.classList.remove('hidden');
+                conferenceToggleBtn.textContent = 'Hide Papers';
+            }
+        });
+    }
 } 
