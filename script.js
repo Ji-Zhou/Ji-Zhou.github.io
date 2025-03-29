@@ -389,17 +389,24 @@ function setupResumeDownload() {
     // Show loading state initially
     resumeLink.textContent = 'Checking Resume...';
     
+    // For GitHub Pages, we need to handle file checks differently
+    // Create a full URL based on the current page location
+    const fullResumeUrl = new URL(originalHref, window.location.href).href;
+    
     // Check if file exists when page loads
-    fetch(originalHref, { method: 'HEAD' })
+    fetch(fullResumeUrl, { method: 'HEAD', cache: 'no-cache' })
         .then(response => {
             if (response.ok) {
                 // File exists
                 resumeLink.textContent = 'Download Resume (PDF)';
                 
+                // Update href to use the full URL
+                resumeLink.setAttribute('href', fullResumeUrl);
+                
                 // Add click handler for download
                 resumeLink.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    window.location.href = originalHref;
+                    // For direct downloads, we don't need to prevent default
+                    // This allows the browser to handle the download natively
                 });
             } else {
                 // File doesn't exist
@@ -414,7 +421,7 @@ function setupResumeDownload() {
             }
         })
         .catch(error => {
-            console.error('Error checking resume file:', error);
+            // On GitHub Pages, fetch might fail due to CORS if the file doesn't exist
             resumeLink.textContent = 'Resume Not Available';
             resumeLink.classList.add('unavailable');
             
