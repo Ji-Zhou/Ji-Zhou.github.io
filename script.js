@@ -315,23 +315,64 @@ const journals = [
 
 // Function to initialize content
 function initializeContent() {
-    // Add journal papers
-    const journalContainer = document.querySelector('.journal-papers');
-    journalPapers.forEach(paper => {
-        addJournalPaper(journalContainer, paper);
-    });
+    try {
+        console.log("Initializing content...");
+        
+        // Add journal papers
+        const journalContainer = document.querySelector('.journal-papers');
+        if (!journalContainer) {
+            console.error("Journal container not found!");
+        } else {
+            console.log("Found journal container, adding papers...");
+            console.log("Journal papers to add:", journalPapers.length);
+            journalPapers.forEach((paper, index) => {
+                try {
+                    addJournalPaper(journalContainer, paper);
+                    console.log(`Added journal paper ${index+1}/${journalPapers.length}`);
+                } catch (err) {
+                    console.error(`Error adding journal paper ${index+1}:`, err);
+                }
+            });
+        }
 
-    // Add conference papers
-    const conferenceContainer = document.querySelector('.conference-papers');
-    conferencePapers.forEach(paper => {
-        addConferencePaper(conferenceContainer, paper);
-    });
+        // Add conference papers
+        const conferenceContainer = document.querySelector('.conference-papers');
+        if (!conferenceContainer) {
+            console.error("Conference container not found!");
+        } else {
+            console.log("Found conference container, adding papers...");
+            console.log("Conference papers to add:", conferencePapers.length);
+            conferencePapers.forEach((paper, index) => {
+                try {
+                    addConferencePaper(conferenceContainer, paper);
+                    console.log(`Added conference paper ${index+1}/${conferencePapers.length}`);
+                } catch (err) {
+                    console.error(`Error adding conference paper ${index+1}:`, err);
+                }
+            });
+        }
 
-    // Add journals with call for papers
-    const journalsContainer = document.querySelector('.journals-list');
-    journals.forEach(journal => {
-        addJournal(journalsContainer, journal);
-    });
+        // Add journals with call for papers
+        const journalsContainer = document.querySelector('.journals-list');
+        if (!journalsContainer) {
+            console.error("Journals container not found!");
+        } else {
+            console.log("Found journals container, adding journals...");
+            console.log("Journals to add:", journals.length);
+            journals.forEach((journal, index) => {
+                try {
+                    addJournal(journalsContainer, journal);
+                    console.log(`Added journal ${index+1}/${journals.length}`);
+                } catch (err) {
+                    console.error(`Error adding journal ${index+1}:`, err);
+                }
+            });
+        }
+        
+        console.log("Content initialization complete!");
+    } catch (error) {
+        console.error("Error initializing content:", error);
+    }
 }
 
 // Function to check if resume file exists and setup resume link
