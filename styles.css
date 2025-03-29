@@ -190,6 +190,7 @@ h1, h2, h3, h4 {
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     cursor: pointer;
     transition: all 0.3s ease;
+    margin-bottom: 1rem;
 }
 
 .journal-item:hover {
@@ -200,6 +201,29 @@ h1, h2, h3, h4 {
 .journal-item.expanded {
     background-color: var(--light-gray);
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.journal-item.expandable {
+    position: relative;
+}
+
+/* Use a cleaner plus/minus indicator */
+.journal-item.expandable .paper-count {
+    position: relative;
+    padding-right: 25px;
+}
+
+.journal-item.expandable .paper-count::after {
+    content: "+";
+    position: absolute;
+    right: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    transition: transform 0.3s ease;
+}
+
+.journal-item.expanded .paper-count::after {
+    content: "−"; /* Using minus sign instead of transform rotation */
 }
 
 .journal-header {
@@ -220,24 +244,15 @@ h1, h2, h3, h4 {
 }
 
 .journal-header::after {
-    content: '';
-    position: absolute;
-    right: -10px;
-    top: 50%;
-    transform: translateY(-50%) rotate(0deg);
-    width: 10px;
-    height: 10px;
-    border-right: 2px solid var(--secondary-color);
-    border-bottom: 2px solid var(--secondary-color);
-    transition: transform 0.3s ease;
+    display: none;
 }
 
 .journal-item:hover .journal-header::after {
-    transform: translateY(-50%) rotate(45deg);
+    display: none;
 }
 
 .journal-item.expanded .journal-header::after {
-    transform: translateY(-50%) rotate(-135deg);
+    display: none;
 }
 
 .paper-count {
@@ -253,21 +268,11 @@ h1, h2, h3, h4 {
     margin-top: 1rem;
     padding-top: 1rem;
     border-top: 1px solid #eee;
-    transition: all 0.4s ease;
-    opacity: 0;
-    max-height: 0;
-    overflow: hidden;
-    transform: translateY(-20px);
-    pointer-events: none;
-    visibility: hidden;
+    display: none;
 }
 
 .journal-item.expanded .journal-details {
-    opacity: 1;
-    max-height: 2000px;
-    transform: translateY(0);
-    pointer-events: auto;
-    visibility: visible;
+    display: block;
 }
 
 .paper-info {
@@ -275,21 +280,7 @@ h1, h2, h3, h4 {
     padding: 1rem;
     background-color: var(--white);
     border-radius: 4px;
-    transition: all 0.3s ease;
-    opacity: 0;
-    transform: translateX(-10px);
 }
-
-.journal-item.expanded .paper-info {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.paper-info:nth-child(1) { transition-delay: 0.1s; }
-.paper-info:nth-child(2) { transition-delay: 0.2s; }
-.paper-info:nth-child(3) { transition-delay: 0.3s; }
-.paper-info:nth-child(4) { transition-delay: 0.4s; }
-.paper-info:nth-child(5) { transition-delay: 0.5s; }
 
 .paper-info:hover {
     transform: translateX(5px);
@@ -339,23 +330,4 @@ footer {
         text-align: center;
         gap: 1rem;
     }
-}
-
-.journal-item.expandable {
-    position: relative;
-}
-
-.journal-item.expandable::before {
-    content: "+";
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    font-size: 1.2rem;
-    color: var(--secondary-color);
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.journal-item.expanded::before {
-    transform: rotate(45deg);
-    opacity: 0.7;
 } 
