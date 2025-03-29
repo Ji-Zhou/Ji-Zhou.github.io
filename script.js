@@ -25,28 +25,6 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', setActiveNavLink);
     setActiveNavLink();
 
-    // Handle Call for Papers expansion
-    const journalItems = document.querySelectorAll('.journal-item');
-    journalItems.forEach(item => {
-        const count = parseInt(item.querySelector('.paper-count').textContent);
-        if (count > 0) {
-            item.addEventListener('click', function() {
-                const details = this.querySelector('.journal-details');
-                if (details) {
-                    // Toggle the expanded class
-                    this.classList.toggle('expanded');
-                    
-                    // Close other expanded items
-                    journalItems.forEach(otherItem => {
-                        if (otherItem !== this && otherItem.classList.contains('expanded')) {
-                            otherItem.classList.remove('expanded');
-                        }
-                    });
-                }
-            });
-        }
-    });
-
     // Smooth scrolling for navigation links
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -59,7 +37,35 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize content
     initializeContent();
+
+    // After content is initialized, attach event listeners to journal items
+    attachJournalEvents();
 });
+
+// Function to attach event listeners to journal items
+function attachJournalEvents() {
+    // No need to manually attach events anymore as they're directly added in the addJournal function
+    console.log('Journal events are handled directly in the addJournal function');
+}
+
+// Function to toggle journal expansion
+function toggleJournalExpansion(event) {
+    console.log('Journal clicked:', this);
+    
+    // Toggle the expanded class
+    this.classList.toggle('expanded');
+    
+    // Close other expanded items
+    const allJournals = document.querySelectorAll('.journal-item.expandable');
+    allJournals.forEach(journal => {
+        if (journal !== this && journal.classList.contains('expanded')) {
+            journal.classList.remove('expanded');
+        }
+    });
+    
+    // Prevent event from bubbling up
+    event.stopPropagation();
+}
 
 // Function to add a journal paper
 function addJournalPaper(container, paper) {
@@ -106,45 +112,137 @@ function addConferencePaper(container, paper) {
 // Function to add a journal with call for papers
 function addJournal(container, journal) {
     const journalElement = document.createElement('div');
-    // Add expandable class if there are papers
-    journalElement.className = `journal-item${journal.papers.length > 0 ? ' expandable' : ''}`;
-    journalElement.innerHTML = `
-        <div class="journal-header">
-            <h4>${journal.name}</h4>
-            <span class="paper-count">${journal.papers.length}</span>
-        </div>
-        ${journal.papers.length > 0 ? `
-            <div class="journal-details">
-                ${journal.papers.map(paper => `
-                    <div class="paper-info">
-                        <h5>${paper.title}</h5>
-                        <p>${paper.description}</p>
-                    </div>
-                `).join('')}
-            </div>
-        ` : ''}
-    `;
+    journalElement.className = 'journal-item';
+    
+    // Add journal header
+    const headerElement = document.createElement('div');
+    headerElement.className = 'journal-header';
+    
+    // Add journal name
+    const nameElement = document.createElement('h4');
+    nameElement.textContent = journal.name;
+    headerElement.appendChild(nameElement);
+    
+    // Add paper count
+    const countElement = document.createElement('span');
+    countElement.className = 'paper-count';
+    countElement.textContent = journal.papers.length;
+    headerElement.appendChild(countElement);
+    
+    // Add header to journal element
+    journalElement.appendChild(headerElement);
+    
+    // If journal has papers, add details section and button
+    if (journal.papers.length > 0) {
+        // Create toggle button
+        const toggleButton = document.createElement('button');
+        toggleButton.className = 'toggle-details-btn';
+        toggleButton.textContent = 'Show Details';
+        toggleButton.style.marginTop = '10px';
+        toggleButton.style.padding = '5px 10px';
+        toggleButton.style.backgroundColor = 'var(--secondary-color)';
+        toggleButton.style.color = '#fff';
+        toggleButton.style.border = 'none';
+        toggleButton.style.borderRadius = '4px';
+        toggleButton.style.cursor = 'pointer';
+        journalElement.appendChild(toggleButton);
+        
+        // Create details container
+        const detailsElement = document.createElement('div');
+        detailsElement.className = 'journal-details';
+        detailsElement.style.display = 'none'; // Hidden by default
+        
+        // Add paper info
+        journal.papers.forEach(paper => {
+            const paperInfoElement = document.createElement('div');
+            paperInfoElement.className = 'paper-info';
+            
+            const titleElement = document.createElement('h5');
+            titleElement.textContent = paper.title;
+            paperInfoElement.appendChild(titleElement);
+            
+            const descElement = document.createElement('p');
+            descElement.textContent = paper.description;
+            paperInfoElement.appendChild(descElement);
+            
+            detailsElement.appendChild(paperInfoElement);
+        });
+        
+        journalElement.appendChild(detailsElement);
+        
+        // Add click handler to the button
+        toggleButton.addEventListener('click', function() {
+            if (detailsElement.style.display === 'none') {
+                detailsElement.style.display = 'block';
+                toggleButton.textContent = 'Hide Details';
+                journalElement.style.backgroundColor = '#e3f2fd';
+                journalElement.style.borderLeft = '4px solid var(--secondary-color)';
+            } else {
+                detailsElement.style.display = 'none';
+                toggleButton.textContent = 'Show Details';
+                journalElement.style.backgroundColor = '';
+                journalElement.style.borderLeft = '';
+            }
+        });
+    }
+    
     container.appendChild(journalElement);
 }
 
 // Example journal papers
 const journalPapers = [
     {
-        title: "A Novel Approach to Autonomous Vehicle Navigation",
-        authors: "Zhou, J., Zheng, N., & Smith, J.",
-        journal: "Transportation Research Part C: Emerging Technologies",
-        description: "This paper presents a novel approach to autonomous vehicle navigation using deep learning techniques.",
-        image: "assets/papers/paper1.jpg"
+        title: "Multi-echelon sustainable reverse logistics network design with incentive mechanism for eco-packages",
+        authors: "Ji Zhou, Senyan Yang, Hui Feng, Zexu An",
+        journal: "Journal of Cleaner Production, 2023",
+        description: "Research Project in My Bachelor Study",
+        image: "assets/papers/paper1.jpg",
+        boldWords: ["Ji Zhou"]
     },
     {
-        title: "Machine Learning in Traffic Flow Prediction",
-        authors: "Zhou, J., & Zheng, N.",
-        journal: "IEEE Transactions on Intelligent Transportation Systems",
-        description: "An innovative method for traffic flow prediction using machine learning algorithms.",
+        title: "Attention-based 3DTCN-LSTM short-term network traffic prediction model considering multi-base station spatiotemporal coupling",
+        authors: "Yuliang Zhan, Ji Zhou, Jiayi Zhang",
+        journal: "Internation Journal of Web Engineering and Technology, 2022",
+        description: "Research Project in My Bachelor Study",
         image: "assets/papers/paper2.jpg",
-        boldWords: ["machine learning", "traffic flow"]
+        boldWords: ["Ji Zhou"]
     }
+    {
+        title: "A Multi-Level Framework for Collaborative Vehicle Trajectory Planning in Unstructured Road Environments",
+        authors: "Ji Zhou, Biao Xu, Yougang Bian, Hongmao Qin, Chen Wang, Nan Zheng",
+        journal: "Automation in Construction, Under Review",
+        description: "Research Project in My Doctoral Study",
+        image: "assets/papers/paper3.jpg",
+        boldWords: ["Ji Zhou"]
+    }
+    {
+        title: "Smart Modular Parcel Lockers as a Mean for Last-Mile Delivery: An Optimization Model and Solution Algorithm for Parcels Allocation and Lockers Configuration",
+        authors: "Ji Zhou, Senyan Yang, Chen Wang, Liang Zheng, Nan Zheng",
+        journal: "Engineering Applications of Artificial Intelligence, Under Review",
+        description: "Research Project in My Bachelor Study",
+        image: "assets/papers/paper4.jpg",
+        boldWords: ["Ji Zhou"]
+    }
+    {
+        title: "Collaborative Trajectory Planning for Non-Holonomic Automated Mobile Robots via Distributed Multi-Agent Proximal Policy Optimization",
+        authors: "Jingyi Yu, Ji Zhou",
+        journal: "Applied Soft Computing, Under Review",
+        description: "Research Project in My Bachelor Study",
+        image: "assets/papers/paper5.jpg",
+        boldWords: ["Ji Zhou"]
+    }
+    {
+        title: "Autonomous Haulage System for Open-Pit Mining: A Bibliometric Analysis and Topic Modeling based Review",
+        authors: "Ji Zhou, Nan Zheng",
+        journal: "On-going",
+        description: "Research Project in My Doctoral Study",
+        image: "assets/papers/paper6.jpg",
+        boldWords: ["Ji Zhou"]
+    }
+
+
 ];
+
 
 // Example conference papers
 const conferencePapers = [
