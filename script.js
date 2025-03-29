@@ -33,11 +33,15 @@ document.addEventListener('DOMContentLoaded', function() {
             item.addEventListener('click', function() {
                 const details = this.querySelector('.journal-details');
                 if (details) {
-                    const isExpanded = details.style.display === 'block';
-                    details.style.display = isExpanded ? 'none' : 'block';
-                    
-                    // Add visual feedback
+                    // Toggle the expanded class
                     this.classList.toggle('expanded');
+                    
+                    // Close other expanded items
+                    journalItems.forEach(otherItem => {
+                        if (otherItem !== this && otherItem.classList.contains('expanded')) {
+                            otherItem.classList.remove('expanded');
+                        }
+                    });
                 }
             });
         }
