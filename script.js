@@ -267,16 +267,28 @@ const journalPapers = [
 // Example conference papers
 const conferencePapers = [
     {
-        title: "Real-time Traffic Signal Optimization",
-        authors: "Zhou, J., Zheng, N., & Johnson, R.",
-        conference: "IEEE International Conference on Intelligent Transportation Systems (ITSC)",
-        description: "A new framework for real-time traffic signal optimization in urban areas."
+        title: "A Novel Vehicle Scheduling Method utilizing Federate Reinforcement Learning for Unmanned Transportation in Controlled Areas",
+        authors: "Australia, 2025.07",
+        conference: "2025 Summer Meeting of the Traffic Flow Theory and Characteristics Committe, Symposium on Advancing Traffic Flow Theory for a Sustainable Future",
+        description: "Oral Presentation"
     },
     {
-        title: "Deep Learning for Traffic Flow Analysis",
-        authors: "Zhou, J., & Zheng, N.",
-        conference: "Transportation Research Board Annual Meeting",
-        description: "Application of deep learning techniques in traffic flow analysis and prediction."
+        title: "Multi-echelon Sustainable Reverse Logistics Network Design with Incentive Mechanism for Eco-packages",
+        authors: "Beijing, 2024.11",
+        conference: "2024 China Logistics Academic Annual Conference",
+        description: "Oral Presentation"
+    },
+    {
+        title: "Multi-echelon Sustainable Reverse Logistics Network Design with Incentive Mechanism for Eco-packages",
+        authors: "Nanjing, 2023.07",
+        conference: "The 18th International Conference on Service Systems and Service Management",
+        description: "Oral Presentation"
+    },
+    {
+        title: "Multi-echelon Sustainable Reverse Logistics Network Design with Incentive Mechanism for Eco-packages",
+        authors: "Shanghai, 2024.05",
+        conference: "The 10th China Academic Conference on Low Carbon Development Management",
+        description: "Oral Presentation"
     }
 ];
 
@@ -286,14 +298,14 @@ const journals = [
         name: "Transportation Research Part C: Emerging Technologies",
         papers: [
             {
-                title: "Special Issue on AI in Transportation",
-                description: "Call for papers on the application of artificial intelligence in transportation systems. Deadline: December 31, 2024.",
+                title: "Special Issue",
+                description: "Foundation Models and Large Language Models in Urban Mobility. Deadline: October 31, 2025.",
                 link: "https://www.journals.elsevier.com/transportation-research-part-c-emerging-technologies/call-for-papers"
             },
             {
-                title: "Special Issue on Autonomous Vehicles",
-                description: "Call for papers on autonomous vehicle technologies and their impact on transportation. Deadline: March 15, 2025.",
-                link: "https://www.journals.elsevier.com/transportation-research-part-c-emerging-technologies/call-for-papers/autonomous-vehicles"
+                title: "Special Issue",
+                description: "Innovations for operation and pricing of public mobility services. Deadline: December 31, 2025.",
+                link: "https://www.journals.elsevier.com/transportation-research-part-c-emerging-technologies/call-for-papers"
             }
         ]
     },
@@ -301,15 +313,21 @@ const journals = [
         name: "IEEE Transactions on Intelligent Transportation Systems",
         papers: [
             {
-                title: "Special Issue on Smart Cities",
-                description: "Call for papers on smart city technologies and their implementation. Deadline: January 31, 2025.",
-                link: "https://ieee-itss.org/publication/transactions/calls-for-papers/"
+                title: "Special Issue",
+                description: "Federated Learning and Digital Twins for Intelligent Transportation System. Deadline: May 31, 2025.",
+                link: "https://ieee-itss.org/pub/t-its/special-issues/"
             }
         ]
     },
     {
-        name: "Transportation Research Part B: Methodological",
-        papers: [] // No current calls for papers
+        name: "IEEE Transactions on Automation Science and Engineering",
+        papers: [
+            {
+                title: "Special Issue",
+                description: "Machine Learning for Optimization in Automation. Deadline: April 30, 2025.",
+                link: "https://www.ieee-ras.org/publications/t-ase/special-issues-t-ase"
+            }
+        ] // No current calls for papers
     }
 ];
 
