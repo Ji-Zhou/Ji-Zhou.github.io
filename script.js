@@ -40,6 +40,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // After content is initialized, attach event listeners to journal items
     attachJournalEvents();
+    
+    // Setup resume download with verification
+    setupResumeDownload();
 });
 
 // Function to attach event listeners to journal items
@@ -165,6 +168,23 @@ function addJournal(container, journal) {
             descElement.textContent = paper.description;
             paperInfoElement.appendChild(descElement);
             
+            // Add link if available
+            if (paper.link) {
+                const linkContainer = document.createElement('div');
+                linkContainer.className = 'paper-link';
+                linkContainer.style.marginTop = '10px';
+                
+                const linkElement = document.createElement('a');
+                linkElement.href = paper.link;
+                linkElement.target = "_blank";
+                linkElement.rel = "noopener noreferrer";
+                linkElement.className = 'paper-link-btn';
+                linkElement.textContent = 'Visit Call for Papers';
+                
+                linkContainer.appendChild(linkElement);
+                paperInfoElement.appendChild(linkContainer);
+            }
+            
             detailsElement.appendChild(paperInfoElement);
         });
         
@@ -192,57 +212,21 @@ function addJournal(container, journal) {
 // Example journal papers
 const journalPapers = [
     {
-        title: "Multi-echelon sustainable reverse logistics network design with incentive mechanism for eco-packages",
-        authors: "Ji Zhou, Senyan Yang, Hui Feng, Zexu An",
-        journal: "Journal of Cleaner Production, 2023",
-        description: "Research Project in My Bachelor Study",
-        image: "assets/papers/paper1.jpg",
-        boldWords: ["Ji Zhou"]
+        title: "A Novel Approach to Autonomous Vehicle Navigation",
+        authors: "Zhou, J., Zheng, N., & Smith, J.",
+        journal: "Transportation Research Part C: Emerging Technologies",
+        description: "This paper presents a novel approach to autonomous vehicle navigation using deep learning techniques.",
+        image: "assets/papers/paper1.jpg"
     },
     {
-        title: "Attention-based 3DTCN-LSTM short-term network traffic prediction model considering multi-base station spatiotemporal coupling",
-        authors: "Yuliang Zhan, Ji Zhou, Jiayi Zhang",
-        journal: "Internation Journal of Web Engineering and Technology, 2022",
-        description: "Research Project in My Bachelor Study",
+        title: "Machine Learning in Traffic Flow Prediction",
+        authors: "Zhou, J., & Zheng, N.",
+        journal: "IEEE Transactions on Intelligent Transportation Systems",
+        description: "An innovative method for traffic flow prediction using machine learning algorithms.",
         image: "assets/papers/paper2.jpg",
-        boldWords: ["Ji Zhou"]
+        boldWords: ["machine learning", "traffic flow"]
     }
-    {
-        title: "A Multi-Level Framework for Collaborative Vehicle Trajectory Planning in Unstructured Road Environments",
-        authors: "Ji Zhou, Biao Xu, Yougang Bian, Hongmao Qin, Chen Wang, Nan Zheng",
-        journal: "Automation in Construction, Under Review",
-        description: "Research Project in My Doctoral Study",
-        image: "assets/papers/paper3.jpg",
-        boldWords: ["Ji Zhou"]
-    }
-    {
-        title: "Smart Modular Parcel Lockers as a Mean for Last-Mile Delivery: An Optimization Model and Solution Algorithm for Parcels Allocation and Lockers Configuration",
-        authors: "Ji Zhou, Senyan Yang, Chen Wang, Liang Zheng, Nan Zheng",
-        journal: "Engineering Applications of Artificial Intelligence, Under Review",
-        description: "Research Project in My Bachelor Study",
-        image: "assets/papers/paper4.jpg",
-        boldWords: ["Ji Zhou"]
-    }
-    {
-        title: "Collaborative Trajectory Planning for Non-Holonomic Automated Mobile Robots via Distributed Multi-Agent Proximal Policy Optimization",
-        authors: "Jingyi Yu, Ji Zhou",
-        journal: "Applied Soft Computing, Under Review",
-        description: "Research Project in My Bachelor Study",
-        image: "assets/papers/paper5.jpg",
-        boldWords: ["Ji Zhou"]
-    }
-    {
-        title: "Autonomous Haulage System for Open-Pit Mining: A Bibliometric Analysis and Topic Modeling based Review",
-        authors: "Ji Zhou, Nan Zheng",
-        journal: "On-going",
-        description: "Research Project in My Doctoral Study",
-        image: "assets/papers/paper6.jpg",
-        boldWords: ["Ji Zhou"]
-    }
-
-
 ];
-
 
 // Example conference papers
 const conferencePapers = [
@@ -267,11 +251,13 @@ const journals = [
         papers: [
             {
                 title: "Special Issue on AI in Transportation",
-                description: "Call for papers on the application of artificial intelligence in transportation systems. Deadline: December 31, 2024."
+                description: "Call for papers on the application of artificial intelligence in transportation systems. Deadline: December 31, 2024.",
+                link: "https://www.journals.elsevier.com/transportation-research-part-c-emerging-technologies/call-for-papers"
             },
             {
                 title: "Special Issue on Autonomous Vehicles",
-                description: "Call for papers on autonomous vehicle technologies and their impact on transportation. Deadline: March 15, 2025."
+                description: "Call for papers on autonomous vehicle technologies and their impact on transportation. Deadline: March 15, 2025.",
+                link: "https://www.journals.elsevier.com/transportation-research-part-c-emerging-technologies/call-for-papers/autonomous-vehicles"
             }
         ]
     },
@@ -280,7 +266,8 @@ const journals = [
         papers: [
             {
                 title: "Special Issue on Smart Cities",
-                description: "Call for papers on smart city technologies and their implementation. Deadline: January 31, 2025."
+                description: "Call for papers on smart city technologies and their implementation. Deadline: January 31, 2025.",
+                link: "https://ieee-itss.org/publication/transactions/calls-for-papers/"
             }
         ]
     },
@@ -309,4 +296,52 @@ function initializeContent() {
     journals.forEach(journal => {
         addJournal(journalsContainer, journal);
     });
+}
+
+// Function to check if resume file exists and setup resume link
+function setupResumeDownload() {
+    const resumeLink = document.querySelector('.download-btn');
+    if (!resumeLink) return;
+    
+    // Store the original link
+    const originalHref = resumeLink.getAttribute('href');
+    
+    // Show loading state initially
+    resumeLink.textContent = 'Checking Resume...';
+    
+    // Check if file exists when page loads
+    fetch(originalHref, { method: 'HEAD' })
+        .then(response => {
+            if (response.ok) {
+                // File exists
+                resumeLink.textContent = 'Download Resume (PDF)';
+                
+                // Add click handler for download
+                resumeLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.location.href = originalHref;
+                });
+            } else {
+                // File doesn't exist
+                resumeLink.textContent = 'Resume Not Available';
+                resumeLink.classList.add('unavailable');
+                
+                // Add click handler to show message
+                resumeLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    alert('The resume PDF has not been uploaded yet. Please contact the author to request the resume.');
+                });
+            }
+        })
+        .catch(error => {
+            console.error('Error checking resume file:', error);
+            resumeLink.textContent = 'Resume Not Available';
+            resumeLink.classList.add('unavailable');
+            
+            // Add click handler to show message
+            resumeLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('The resume PDF has not been uploaded yet. Please contact the author to request the resume.');
+            });
+        });
 } 
