@@ -33,7 +33,11 @@ document.addEventListener('DOMContentLoaded', function() {
             item.addEventListener('click', function() {
                 const details = this.querySelector('.journal-details');
                 if (details) {
-                    details.style.display = details.style.display === 'none' ? 'block' : 'none';
+                    const isExpanded = details.style.display === 'block';
+                    details.style.display = isExpanded ? 'none' : 'block';
+                    
+                    // Add visual feedback
+                    this.classList.toggle('expanded');
                 }
             });
         }
@@ -72,7 +76,7 @@ function addJournalPaper(container, paper) {
 // Function to add a conference paper
 function addConferencePaper(container, paper) {
     const paperElement = document.createElement('div');
-    paperElement.className = 'paper-item';
+    paperElement.className = 'paper-item conference-paper';
     paperElement.innerHTML = `
         <div class="paper-content">
             <h4>${paper.title}</h4>
