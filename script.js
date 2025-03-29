@@ -51,13 +51,10 @@ document.addEventListener('DOMContentLoaded', function() {
 // Function to attach event listeners to journal items
 function attachJournalEvents() {
     // No need to manually attach events anymore as they're directly added in the addJournal function
-    console.log('Journal events are handled directly in the addJournal function');
 }
 
 // Function to toggle journal expansion
 function toggleJournalExpansion(event) {
-    console.log('Journal clicked:', this);
-    
     // Toggle the expanded class
     this.classList.toggle('expanded');
     
@@ -73,7 +70,24 @@ function toggleJournalExpansion(event) {
     event.stopPropagation();
 }
 
-// Function to add a journal paper
+// Helper function to ensure paths work correctly on GitHub Pages
+function getPathForGitHub(path) {
+    // If it's already an absolute URL, return it unchanged
+    if (path.startsWith('http://') || path.startsWith('https://')) {
+        return path;
+    }
+    
+    // Get the base URL of the GitHub Pages site
+    const baseUrl = window.location.href.split('/').slice(0, -1).join('/') + '/';
+    
+    // Remove leading slash if present
+    const normalizedPath = path.startsWith('/') ? path.substring(1) : path;
+    
+    // Join the base URL with the path
+    return new URL(normalizedPath, baseUrl).href;
+}
+
+// Modified addJournalPaper function to handle GitHub Pages paths
 function addJournalPaper(container, paper) {
     // Process description to make specific words bold
     let processedDescription = paper.description;
@@ -86,10 +100,13 @@ function addJournalPaper(container, paper) {
         });
     }
     
+    // Ensure image path is correct for GitHub Pages
+    const imagePath = getPathForGitHub(paper.image);
+    
     const paperElement = document.createElement('div');
     paperElement.className = 'paper-item';
     paperElement.innerHTML = `
-        <img src="${paper.image}" alt="${paper.title}" class="paper-image">
+        <img src="${imagePath}" alt="${paper.title}" class="paper-image">
         <div class="paper-content">
             <h4>${paper.title}</h4>
             <p>${paper.authors}</p>
@@ -171,13 +188,14 @@ function addJournal(container, journal) {
             descElement.textContent = paper.description;
             paperInfoElement.appendChild(descElement);
             
-            // Add link if available
+            // Add link if available (ensure it works on GitHub Pages)
             if (paper.link) {
                 const linkContainer = document.createElement('div');
                 linkContainer.className = 'paper-link';
                 linkContainer.style.marginTop = '10px';
                 
                 const linkElement = document.createElement('a');
+                // No need to modify external links, they work the same on GitHub Pages
                 linkElement.href = paper.link;
                 linkElement.target = "_blank";
                 linkElement.rel = "noopener noreferrer";
@@ -193,7 +211,7 @@ function addJournal(container, journal) {
         
         journalElement.appendChild(detailsElement);
         
-        // Add click handler to the button
+        // Add click handler to the button with GitHub Pages compatibility
         toggleButton.addEventListener('click', function() {
             if (detailsElement.style.display === 'none') {
                 detailsElement.style.display = 'block';
@@ -318,63 +336,45 @@ const journals = [
 
 // Function to initialize content
 function initializeContent() {
-    try {
-        console.log("Initializing content...");
-        
-        // Add journal papers
-        const journalContainer = document.querySelector('.journal-papers');
-        if (!journalContainer) {
-            console.error("Journal container not found!");
-        } else {
-            console.log("Found journal container, adding papers...");
-            console.log("Journal papers to add:", journalPapers.length);
-            journalPapers.forEach((paper, index) => {
-                try {
-                    addJournalPaper(journalContainer, paper);
-                    console.log(`Added journal paper ${index+1}/${journalPapers.length}`);
-                } catch (err) {
-                    console.error(`Error adding journal paper ${index+1}:`, err);
+    // Add journal papers
+    const journalContainer = document.querySelector('.journal-papers');
+    if (journalContainer) {
+        journalPapers.forEach(paper => {
+            try {
+                // Make sure image paths are correct for GitHub Pages
+                if (paper.image && !paper.image.startsWith('http')) {
+                    // If using relative paths, make sure they work in the GitHub Pages context
+                    paper.image = paper.image.startsWith('/') ? paper.image.substring(1) : paper.image;
                 }
-            });
-        }
+                addJournalPaper(journalContainer, paper);
+            } catch (err) {
+                console.error(`Error adding journal paper:`, err);
+            }
+        });
+    }
 
-        // Add conference papers
-        const conferenceContainer = document.querySelector('.conference-papers');
-        if (!conferenceContainer) {
-            console.error("Conference container not found!");
-        } else {
-            console.log("Found conference container, adding papers...");
-            console.log("Conference papers to add:", conferencePapers.length);
-            conferencePapers.forEach((paper, index) => {
-                try {
-                    addConferencePaper(conferenceContainer, paper);
-                    console.log(`Added conference paper ${index+1}/${conferencePapers.length}`);
-                } catch (err) {
-                    console.error(`Error adding conference paper ${index+1}:`, err);
-                }
-            });
-        }
+    // Add conference papers
+    const conferenceContainer = document.querySelector('.conference-papers');
+    if (conferenceContainer) {
+        conferencePapers.forEach(paper => {
+            try {
+                addConferencePaper(conferenceContainer, paper);
+            } catch (err) {
+                console.error(`Error adding conference paper:`, err);
+            }
+        });
+    }
 
-        // Add journals with call for papers
-        const journalsContainer = document.querySelector('.journals-list');
-        if (!journalsContainer) {
-            console.error("Journals container not found!");
-        } else {
-            console.log("Found journals container, adding journals...");
-            console.log("Journals to add:", journals.length);
-            journals.forEach((journal, index) => {
-                try {
-                    addJournal(journalsContainer, journal);
-                    console.log(`Added journal ${index+1}/${journals.length}`);
-                } catch (err) {
-                    console.error(`Error adding journal ${index+1}:`, err);
-                }
-            });
-        }
-        
-        console.log("Content initialization complete!");
-    } catch (error) {
-        console.error("Error initializing content:", error);
+    // Add journals with call for papers
+    const journalsContainer = document.querySelector('.journals-list');
+    if (journalsContainer) {
+        journals.forEach(journal => {
+            try {
+                addJournal(journalsContainer, journal);
+            } catch (err) {
+                console.error(`Error adding journal:`, err);
+            }
+        });
     }
 }
 
