@@ -48,6 +48,9 @@ document.addEventListener('DOMContentLoaded', function() {
             targetSection.scrollIntoView({ behavior: 'smooth' });
         });
     });
+
+    // Initialize content
+    initializeContent();
 });
 
 // Function to add a journal paper
@@ -102,4 +105,89 @@ function addJournal(container, journal) {
         ` : ''}
     `;
     container.appendChild(journalElement);
+}
+
+// Example journal papers
+const journalPapers = [
+    {
+        title: "A Novel Approach to Autonomous Vehicle Navigation",
+        authors: "Zhou, J., Zheng, N., & Smith, J.",
+        journal: "Transportation Research Part C: Emerging Technologies",
+        description: "This paper presents a novel approach to autonomous vehicle navigation using deep learning techniques.",
+        image: "assets/papers/paper1.jpg"
+    },
+    {
+        title: "Machine Learning in Traffic Flow Prediction",
+        authors: "Zhou, J., & Zheng, N.",
+        journal: "IEEE Transactions on Intelligent Transportation Systems",
+        description: "An innovative method for traffic flow prediction using machine learning algorithms.",
+        image: "assets/papers/paper2.jpg"
+    }
+];
+
+// Example conference papers
+const conferencePapers = [
+    {
+        title: "Real-time Traffic Signal Optimization",
+        authors: "Zhou, J., Zheng, N., & Johnson, R.",
+        conference: "IEEE International Conference on Intelligent Transportation Systems (ITSC)",
+        description: "A new framework for real-time traffic signal optimization in urban areas."
+    },
+    {
+        title: "Deep Learning for Traffic Flow Analysis",
+        authors: "Zhou, J., & Zheng, N.",
+        conference: "Transportation Research Board Annual Meeting",
+        description: "Application of deep learning techniques in traffic flow analysis and prediction."
+    }
+];
+
+// Example journals with call for papers
+const journals = [
+    {
+        name: "Transportation Research Part C: Emerging Technologies",
+        papers: [
+            {
+                title: "Special Issue on AI in Transportation",
+                description: "Call for papers on the application of artificial intelligence in transportation systems. Deadline: December 31, 2024."
+            },
+            {
+                title: "Special Issue on Autonomous Vehicles",
+                description: "Call for papers on autonomous vehicle technologies and their impact on transportation. Deadline: March 15, 2025."
+            }
+        ]
+    },
+    {
+        name: "IEEE Transactions on Intelligent Transportation Systems",
+        papers: [
+            {
+                title: "Special Issue on Smart Cities",
+                description: "Call for papers on smart city technologies and their implementation. Deadline: January 31, 2025."
+            }
+        ]
+    },
+    {
+        name: "Transportation Research Part B: Methodological",
+        papers: [] // No current calls for papers
+    }
+];
+
+// Function to initialize content
+function initializeContent() {
+    // Add journal papers
+    const journalContainer = document.querySelector('.journal-papers');
+    journalPapers.forEach(paper => {
+        addJournalPaper(journalContainer, paper);
+    });
+
+    // Add conference papers
+    const conferenceContainer = document.querySelector('.conference-papers');
+    conferencePapers.forEach(paper => {
+        addConferencePaper(conferenceContainer, paper);
+    });
+
+    // Add journals with call for papers
+    const journalsContainer = document.querySelector('.journals-list');
+    journals.forEach(journal => {
+        addJournal(journalsContainer, journal);
+    });
 } 
