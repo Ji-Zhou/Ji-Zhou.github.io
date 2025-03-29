@@ -118,12 +118,18 @@ h1, h2, h3, h4 {
 .paper-item {
     display: grid;
     grid-template-columns: 200px 1fr;
-    gap: 1rem;
+    gap: 2rem;
     margin-bottom: 2rem;
-    padding: 1rem;
+    padding: 1.5rem;
     background-color: var(--white);
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.paper-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .paper-image {
@@ -131,6 +137,23 @@ h1, h2, h3, h4 {
     height: 150px;
     object-fit: cover;
     border-radius: 4px;
+    margin-bottom: 0.5rem;
+}
+
+.paper-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.paper-content h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.paper-content p {
+    color: #666;
+    line-height: 1.5;
 }
 
 /* Resume Section */
@@ -160,16 +183,17 @@ h1, h2, h3, h4 {
 }
 
 .journal-item {
-    padding: 1rem;
+    padding: 1.5rem;
     background-color: var(--white);
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .journal-item:hover {
     transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .journal-header {
@@ -178,12 +202,42 @@ h1, h2, h3, h4 {
     align-items: center;
 }
 
+.journal-header h4 {
+    color: var(--primary-color);
+    margin: 0;
+}
+
 .paper-count {
     background-color: var(--secondary-color);
     color: var(--white);
-    padding: 0.2rem 0.5rem;
+    padding: 0.2rem 0.8rem;
     border-radius: 15px;
     font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.journal-details {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.paper-info {
+    margin-bottom: 1rem;
+}
+
+.paper-info:last-child {
+    margin-bottom: 0;
+}
+
+.paper-info h5 {
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+}
+
+.paper-info p {
+    color: #666;
+    line-height: 1.5;
 }
 
 /* Footer */
@@ -202,6 +256,11 @@ footer {
 
     .paper-item {
         grid-template-columns: 1fr;
+    }
+
+    .paper-image {
+        max-width: 300px;
+        margin: 0 auto 1rem;
     }
 
     .nav-container {
