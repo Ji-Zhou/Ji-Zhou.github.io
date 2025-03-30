@@ -44,8 +44,17 @@ document.addEventListener('DOMContentLoaded', function() {
     // Setup resume download with verification
     setupResumeDownload();
 
-    // Setup paper section toggles
-    setupPaperSectionToggles();
+    // Setup paper section toggles - moved to its own initialization
+});
+
+// Setup paper section toggles at the end of the file
+// This helps ensure the DOM is fully loaded and all elements exist
+window.addEventListener('load', function() {
+    // Give a small delay to ensure everything is loaded
+    setTimeout(function() {
+        console.log('Setting up paper section toggles after window load');
+        setupPaperSectionToggles();
+    }, 1000);
 });
 
 // Function to attach event listeners to journal items
@@ -530,59 +539,84 @@ function setupResumeDownload() {
 
 // Function to setup paper section toggles
 function setupPaperSectionToggles() {
-    setupToggleButton('toggle-journal-papers', '.journal-papers', 'Papers');
-    setupToggleButton('toggle-conference-papers', '.conference-papers', 'Papers');
-    setupToggleButton('toggle-patents', '.patents', 'Patents');
-    setupToggleButton('toggle-awards', '.awards', 'Awards');
-}
-
-// Helper function to setup toggle buttons with consistent behavior
-function setupToggleButton(buttonId, containerSelector, itemType) {
-    const toggleBtn = document.getElementById(buttonId);
-    const container = document.querySelector(containerSelector);
-    const sectionElement = container.closest(`${containerSelector}-section`);
-    const sectionHeader = sectionElement ? sectionElement.querySelector('.section-header') : null;
+    console.log('Setting up toggle buttons...');
     
-    if (!toggleBtn || !container) return;
+    // Direct implementation instead of calling helper functions
+    // This approach is more straightforward and less prone to errors
     
-    // Function to toggle visibility
-    function toggleVisibility(e) {
-        // If the click was directly on the button, don't execute this function twice
-        if (e && e.target === toggleBtn) return;
-        
-        const isVisible = !container.classList.contains('hidden');
-        
-        if (isVisible) {
-            // Currently visible, hide it
-            container.classList.add('hidden');
-            toggleBtn.textContent = `Show ${itemType}`;
-            // Reset section styling
-            if (sectionElement) {
-                sectionElement.style.backgroundColor = '';
-                sectionElement.style.borderLeft = '';
+    // Journal Papers toggle
+    const journalBtn = document.getElementById('toggle-journal-papers');
+    const journalContainer = document.querySelector('.journal-papers');
+    
+    if (journalBtn && journalContainer) {
+        console.log('Found journal papers toggle elements');
+        journalBtn.onclick = function() {
+            const isVisible = journalContainer.style.display !== 'none';
+            
+            if (isVisible) {
+                journalContainer.style.display = 'none';
+                journalBtn.textContent = 'Show Papers';
+            } else {
+                journalContainer.style.display = 'block';
+                journalBtn.textContent = 'Hide Papers';
             }
-        } else {
-            // Currently hidden, show it
-            container.classList.remove('hidden');
-            toggleBtn.textContent = `Hide ${itemType}`;
-            // Add visual feedback like the Call for Papers section
-            if (sectionElement) {
-                sectionElement.style.backgroundColor = '#f8f9fa';
-                sectionElement.style.borderLeft = '4px solid var(--secondary-color)';
-            }
-        }
+        };
     }
     
-    // Add click event to the button
-    toggleBtn.addEventListener('click', function(e) {
-        e.stopPropagation(); // Prevent the header click from also firing
-        toggleVisibility();
-    });
+    // Conference Papers toggle
+    const conferenceBtn = document.getElementById('toggle-conference-papers');
+    const conferenceContainer = document.querySelector('.conference-papers');
     
-    // Add click event to the section header
-    if (sectionHeader) {
-        sectionHeader.addEventListener('click', function(e) {
-            toggleVisibility(e);
-        });
+    if (conferenceBtn && conferenceContainer) {
+        console.log('Found conference papers toggle elements');
+        conferenceBtn.onclick = function() {
+            const isVisible = conferenceContainer.style.display !== 'none';
+            
+            if (isVisible) {
+                conferenceContainer.style.display = 'none';
+                conferenceBtn.textContent = 'Show Papers';
+            } else {
+                conferenceContainer.style.display = 'block';
+                conferenceBtn.textContent = 'Hide Papers';
+            }
+        };
+    }
+    
+    // Patents toggle
+    const patentsBtn = document.getElementById('toggle-patents');
+    const patentsContainer = document.querySelector('.patents');
+    
+    if (patentsBtn && patentsContainer) {
+        console.log('Found patents toggle elements');
+        patentsBtn.onclick = function() {
+            const isVisible = patentsContainer.style.display !== 'none';
+            
+            if (isVisible) {
+                patentsContainer.style.display = 'none';
+                patentsBtn.textContent = 'Show Patents';
+            } else {
+                patentsContainer.style.display = 'block';
+                patentsBtn.textContent = 'Hide Patents';
+            }
+        };
+    }
+    
+    // Awards toggle
+    const awardsBtn = document.getElementById('toggle-awards');
+    const awardsContainer = document.querySelector('.awards');
+    
+    if (awardsBtn && awardsContainer) {
+        console.log('Found awards toggle elements');
+        awardsBtn.onclick = function() {
+            const isVisible = awardsContainer.style.display !== 'none';
+            
+            if (isVisible) {
+                awardsContainer.style.display = 'none';
+                awardsBtn.textContent = 'Show Awards';
+            } else {
+                awardsContainer.style.display = 'block';
+                awardsBtn.textContent = 'Hide Awards';
+            }
+        };
     }
 } 
