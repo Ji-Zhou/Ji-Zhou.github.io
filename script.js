@@ -139,7 +139,6 @@ function addJournalPaper(container, paper) {
         <img src="${paper.image}" alt="${paper.title}" class="paper-image">
         <div class="paper-content">
             <h4>${paper.title}</h4>
-            <p>${paper.authors}</p>
             <p>${processedAuthors}</p>
             <p>${paper.journal}</p>
             <p>${processedDescription}</p>
@@ -424,17 +423,42 @@ const awards = [
 // Example journals with call for papers
 const journals = [
     {
+        name: "Transportation Research Part B: Methodological",
+        papers: [
+            {
+                title: "Special Issue",
+                description: "Methodological Advances for Connected and Autonomous Transportation Systems: Revolutionizing Operation, Management, and Planning. Deadline: November 30, 2025.",
+                link: "https://www.sciencedirect.com/journal/transportation-research-part-b-methodological/about/call-for-papers"
+            }
+        ]
+    },
+    {
         name: "Transportation Research Part C: Emerging Technologies",
         papers: [
             {
                 title: "Special Issue",
                 description: "Foundation Models and Large Language Models in Urban Mobility. Deadline: October 31, 2025.",
                 link: "https://www.journals.elsevier.com/transportation-research-part-c-emerging-technologies/call-for-papers"
-            },
+            }
+        ]
+    },
+    {
+        name: "Transportation Research Part D: Transport and Environment",
+        papers: [
             {
                 title: "Special Issue",
-                description: "Innovations for operation and pricing of public mobility services. Deadline: December 31, 2025.",
-                link: "https://www.journals.elsevier.com/transportation-research-part-c-emerging-technologies/call-for-papers"
+                description: "Electric Vehicle Charging Solutions. Deadline: October 31, 2025.",
+                link: "https://www.sciencedirect.com/journal/transportation-research-part-d-transport-and-environment/about/call-for-papers"
+            }
+        ]
+    },
+    {
+        name: "Transportation Research Part E: Logistics and Transportation Review",
+        papers: [
+            {
+                title: "Special Issue",
+                description: "Smart City Transport Operations under Emergencies. Deadline: December 31, 2025.",
+                link: "https://www.sciencedirect.com/journal/transportation-research-part-e-logistics-and-transportation-review/about/call-for-papers"
             }
         ]
     },
@@ -457,7 +481,17 @@ const journals = [
                 link: "https://www.ieee-ras.org/publications/t-ase/special-issues-t-ase"
             }
         ] // No current calls for papers
-    }
+    },
+    {
+        name: "Computers & Industrial Engineering",
+        papers: [
+            {
+                title: "Special Issue",
+                description: "The value of data in Industrial Engineering: Optimizing decision-making for enhanced efficiency and performance. Deadline: October 01, 2025.",
+                link: "https://www.sciencedirect.com/journal/computers-and-industrial-engineering/about/call-for-papers"
+            }
+        ]
+    },
 ];
 
 // Function to initialize content
