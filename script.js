@@ -327,7 +327,7 @@ const journalPapers = [
 const conferencePapers = [
     {
         title: "A Novel Vehicle Scheduling Method utilizing Federate Reinforcement Learning for Unmanned Transportation in Controlled Areas",
-        authors: "Australia, 2025.07",
+        authors: "Cairns, 2025.07",
         conference: "2025 Summer Meeting of the Traffic Flow Theory and Characteristics Committe, Symposium on Advancing Traffic Flow Theory for a Sustainable Future",
         description: "Oral Presentation"
     },
@@ -354,22 +354,9 @@ const conferencePapers = [
 // Example patents
 const patents = [
     {
-        title: "An Intelligent Package Distribution System and Method for Smart Lockers",
-        authors: "China, Patent No. CN115427686A",
-        conference: "Filed: 2022-08-15, Published: 2023-02-03",
-        description: "Inventor: Ji Zhou, Senyan Yang"
-    },
-    {
-        title: "A Method for Multi-robot Path Planning in Complex Environments",
-        authors: "China, Patent No. CN114276589A",
-        conference: "Filed: 2021-11-10, Published: 2022-04-12",
-        description: "Inventor: Ji Zhou, Nan Zheng"
-    },
-    {
-        title: "Modular Smart Locker System with Dynamic Capacity Adjustment",
-        authors: "International Patent Application, PCT/CN2023/123456",
-        conference: "Filed: 2023-03-25, Pending",
-        description: "Inventor: Ji Zhou, Chen Wang, Nan Zheng"
+        title: "Modular unmanned delivery terminal management software",
+        authors: "Hongjie Li, Bingyan Pang, Ji Zhou",
+        description: "China, Patent (Software Copyright) No. 2022SR1514773"
     }
 ];
 
