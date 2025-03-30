@@ -43,6 +43,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Setup resume download with verification
     setupResumeDownload();
+
+    // Setup paper section toggles
+    setupPaperSectionToggles();
 });
 
 // Function to attach event listeners to journal items
@@ -292,6 +295,56 @@ const conferencePapers = [
     }
 ];
 
+// Example patents
+const patents = [
+    {
+        title: "An Intelligent Package Distribution System and Method for Smart Lockers",
+        authors: "China, Patent No. CN115427686A",
+        conference: "Filed: 2022-08-15, Published: 2023-02-03",
+        description: "Inventor: Ji Zhou, Senyan Yang"
+    },
+    {
+        title: "A Method for Multi-robot Path Planning in Complex Environments",
+        authors: "China, Patent No. CN114276589A",
+        conference: "Filed: 2021-11-10, Published: 2022-04-12",
+        description: "Inventor: Ji Zhou, Nan Zheng"
+    },
+    {
+        title: "Modular Smart Locker System with Dynamic Capacity Adjustment",
+        authors: "International Patent Application, PCT/CN2023/123456",
+        conference: "Filed: 2023-03-25, Pending",
+        description: "Inventor: Ji Zhou, Chen Wang, Nan Zheng"
+    }
+];
+
+// Example awards
+const awards = [
+    {
+        title: "Outstanding Graduate Award",
+        authors: "Beijing, 2023",
+        conference: "Beijing University of Posts and Telecommunications",
+        description: "Awarded to top 5% of graduates for academic excellence"
+    },
+    {
+        title: "National Scholarship",
+        authors: "China, 2022",
+        conference: "Ministry of Education of China",
+        description: "Most prestigious scholarship for undergraduate students in China"
+    },
+    {
+        title: "Best Paper Award",
+        authors: "Nanjing, 2023",
+        conference: "The 18th International Conference on Service Systems and Service Management",
+        description: "For paper: 'Multi-echelon Sustainable Reverse Logistics Network Design'"
+    },
+    {
+        title: "Innovation Competition First Prize",
+        authors: "Beijing, 2022",
+        conference: "China Post Group Corporation",
+        description: "For the project: 'Intelligent Package Distribution System for Smart Lockers'"
+    }
+];
+
 // Example journals with call for papers
 const journals = [
     {
@@ -369,6 +422,40 @@ function initializeContent() {
                 }
             });
         }
+        
+        // Add patents
+        const patentsContainer = document.querySelector('.patents');
+        if (!patentsContainer) {
+            console.error("Patents container not found!");
+        } else {
+            console.log("Found patents container, adding patents...");
+            console.log("Patents to add:", patents.length);
+            patents.forEach((patent, index) => {
+                try {
+                    addConferencePaper(patentsContainer, patent);
+                    console.log(`Added patent ${index+1}/${patents.length}`);
+                } catch (err) {
+                    console.error(`Error adding patent ${index+1}:`, err);
+                }
+            });
+        }
+        
+        // Add awards
+        const awardsContainer = document.querySelector('.awards');
+        if (!awardsContainer) {
+            console.error("Awards container not found!");
+        } else {
+            console.log("Found awards container, adding awards...");
+            console.log("Awards to add:", awards.length);
+            awards.forEach((award, index) => {
+                try {
+                    addConferencePaper(awardsContainer, award);
+                    console.log(`Added award ${index+1}/${awards.length}`);
+                } catch (err) {
+                    console.error(`Error adding award ${index+1}:`, err);
+                }
+            });
+        }
 
         // Add journals with call for papers
         const journalsContainer = document.querySelector('.journals-list');
@@ -439,4 +526,63 @@ function setupResumeDownload() {
                 alert('The resume PDF has not been uploaded yet. Please contact the author to request the resume.');
             });
         });
+}
+
+// Function to setup paper section toggles
+function setupPaperSectionToggles() {
+    setupToggleButton('toggle-journal-papers', '.journal-papers', 'Papers');
+    setupToggleButton('toggle-conference-papers', '.conference-papers', 'Papers');
+    setupToggleButton('toggle-patents', '.patents', 'Patents');
+    setupToggleButton('toggle-awards', '.awards', 'Awards');
+}
+
+// Helper function to setup toggle buttons with consistent behavior
+function setupToggleButton(buttonId, containerSelector, itemType) {
+    const toggleBtn = document.getElementById(buttonId);
+    const container = document.querySelector(containerSelector);
+    const sectionElement = container.closest(`${containerSelector}-section`);
+    const sectionHeader = sectionElement ? sectionElement.querySelector('.section-header') : null;
+    
+    if (!toggleBtn || !container) return;
+    
+    // Function to toggle visibility
+    function toggleVisibility(e) {
+        // If the click was directly on the button, don't execute this function twice
+        if (e && e.target === toggleBtn) return;
+        
+        const isVisible = !container.classList.contains('hidden');
+        
+        if (isVisible) {
+            // Currently visible, hide it
+            container.classList.add('hidden');
+            toggleBtn.textContent = `Show ${itemType}`;
+            // Reset section styling
+            if (sectionElement) {
+                sectionElement.style.backgroundColor = '';
+                sectionElement.style.borderLeft = '';
+            }
+        } else {
+            // Currently hidden, show it
+            container.classList.remove('hidden');
+            toggleBtn.textContent = `Hide ${itemType}`;
+            // Add visual feedback like the Call for Papers section
+            if (sectionElement) {
+                sectionElement.style.backgroundColor = '#f8f9fa';
+                sectionElement.style.borderLeft = '4px solid var(--secondary-color)';
+            }
+        }
+    }
+    
+    // Add click event to the button
+    toggleBtn.addEventListener('click', function(e) {
+        e.stopPropagation(); // Prevent the header click from also firing
+        toggleVisibility();
+    });
+    
+    // Add click event to the section header
+    if (sectionHeader) {
+        sectionHeader.addEventListener('click', function(e) {
+            toggleVisibility(e);
+        });
+    }
 } 
