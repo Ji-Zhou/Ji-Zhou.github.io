@@ -115,7 +115,14 @@ function toggleJournalExpansion(event) {
 // Function to add a journal paper
 function addJournalPaper(container, paper) {
     // Process description to make specific words bold
+    let processedAuthors = paper.authors;
     let processedDescription = paper.description;
+    
+    // Bold "Ji Zhou" in authors field
+    processedAuthors = processedAuthors.replace(/\bJi Zhou\b/g, '<strong>Ji Zhou</strong>');
+    
+    // Bold "Ji Zhou" in description field (for patents where "Inventor: Ji Zhou" appears)
+    processedDescription = processedDescription.replace(/\bJi Zhou\b/g, '<strong>Ji Zhou</strong>');
     
     // If boldWords array is provided in the paper object, make those words bold
     if (paper.boldWords && Array.isArray(paper.boldWords)) {
