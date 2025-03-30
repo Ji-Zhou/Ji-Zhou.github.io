@@ -271,6 +271,24 @@ function addJournal(container, journal) {
 
 // Example journal papers
 const journalPapers = [
+    
+    {
+        title: "A Multi-Level Framework for Collaborative Vehicle Trajectory Planning in Unstructured Road Environments",
+        authors: "Ji Zhou, Biao Xu, Yougang Bian, Hongmao Qin, Chen Wang, Nan Zheng",
+        journal: "Automation in Construction, Under Review",
+        description: "Research Project in My Doctoral Study",
+        image: "assets/papers/paper3.jpg",
+        boldWords: ["Ji Zhou"]
+    },
+    
+    {
+        title: "Autonomous Haulage System for Open-Pit Mining: A Bibliometric Analysis and Topic Modeling based Review",
+        authors: "Ji Zhou, Nan Zheng",
+        journal: "On-going",
+        description: "Research Project in My Doctoral Study",
+        image: "assets/papers/paper6.jpg",
+        boldWords: ["Ji Zhou"]
+    },
     {
         title: "Multi-echelon sustainable reverse logistics network design with incentive mechanism for eco-packages",
         authors: "Ji Zhou, Senyan Yang, Hui Feng, Zexu An",
@@ -285,14 +303,6 @@ const journalPapers = [
         journal: "Internation Journal of Web Engineering and Technology, 2022",
         description: "Research Project in My Bachelor Study",
         image: "assets/papers/paper2.jpg",
-        boldWords: ["Ji Zhou"]
-    },
-    {
-        title: "A Multi-Level Framework for Collaborative Vehicle Trajectory Planning in Unstructured Road Environments",
-        authors: "Ji Zhou, Biao Xu, Yougang Bian, Hongmao Qin, Chen Wang, Nan Zheng",
-        journal: "Automation in Construction, Under Review",
-        description: "Research Project in My Doctoral Study",
-        image: "assets/papers/paper3.jpg",
         boldWords: ["Ji Zhou"]
     },
     {
@@ -311,14 +321,7 @@ const journalPapers = [
         image: "assets/papers/paper5.jpg",
         boldWords: ["Ji Zhou"]
     },
-    {
-        title: "Autonomous Haulage System for Open-Pit Mining: A Bibliometric Analysis and Topic Modeling based Review",
-        authors: "Ji Zhou, Nan Zheng",
-        journal: "On-going",
-        description: "Research Project in My Doctoral Study",
-        image: "assets/papers/paper6.jpg",
-        boldWords: ["Ji Zhou"]
-    }
+    
 
 
 ];
