@@ -366,29 +366,59 @@ const patents = [
 // Example awards
 const awards = [
     {
-        title: "Outstanding Graduate Award",
-        authors: "Beijing, 2023",
-        conference: "Beijing University of Posts and Telecommunications",
-        description: "Awarded to top 5% of graduates for academic excellence"
+        title: "National Third Prize",
+        authors: "December 2024, China Society of Logistics",
+        conference: "2024 China Logistics Academic Annual Conference",
+        description: "Rank: 48/1316"
     },
     {
-        title: "National Scholarship",
-        authors: "China, 2022",
-        conference: "Ministry of Education of China",
-        description: "Most prestigious scholarship for undergraduate students in China"
+        title: "National Third Prize",
+        authors: "September 2023",
+        conference: "The 18th ‘Challenge Cup’ China University Student Extracurricular Academic and Technological Works Competition ‘Black Technology’ Special Competition",
+        description: "One of the most popular competitions among Chinese college students"
     },
     {
-        title: "Best Paper Award",
-        authors: "Nanjing, 2023",
-        conference: "The 18th International Conference on Service Systems and Service Management",
-        description: "For paper: 'Multi-echelon Sustainable Reverse Logistics Network Design'"
+        title: "Excellent Award & Recruitment Opportunity without Exams",
+        authors: "August 2023, SF-Express Group(顺丰)",
+        conference: "SF-X Smart Supply Chain Elite Challenge for Universities",
+        description: "Over 4700 participants"
     },
     {
-        title: "Innovation Competition First Prize",
-        authors: "Beijing, 2022",
-        conference: "China Post Group Corporation",
-        description: "For the project: 'Intelligent Package Distribution System for Smart Lockers'"
-    }
+        title: "National Special Prize",
+        authors: "May 2023, Chinese Society of Optimization, Overall Planning and Economical Mathematics & Shanghai Jiaotong University",
+        conference: "The 9th China University Student Energy Economy Academic Creativity Competition",
+        description: "Rank: 4/330. Awarded by Academician of Chinese Academy of Engineering"
+    },
+    {
+        title: "National Third Prize",
+        authors: "May 2023, China Communications and Transportation Association & Jiangmen University",
+        conference: "The 18th China University Student Transportation Technology Competition",
+        description: "Rank: 108/1183"
+    },
+    {
+        title: "Beijing Special Prize",
+        authors: "April 2023",
+        conference: "'Challenge Cup' Beijing University Student Extracurricular Academic and Technological Works Competition",
+        description: "One of the most popular competitions among Chinese college students"
+    },
+    {
+        title: "National First Prize",
+        authors: "April 2023, China Post Office",
+        conference: "Group of Innovation Product. The 7th China Internet+ Express Industry Innovation and Entrepreneurship Competition",
+        description: "Rank: 3/759"
+    },
+    {
+        title: "National Second Prize",
+        authors: "April 2023, China Post Office",
+        conference: "Group of Process Optimization. The 7th China Internet+ Express Industry Innovation and Entrepreneurship Competition",
+        description: "Rank: 9/759"
+    },
+    {
+        title: "Outstanding Volunteer",
+        authors: "April 2022, International Olympic Committee & International Paralympic Committee",
+        conference: "Beijing 2022 Winter Olympics and Paralympics",
+        description: "Amazing and proud experience"
+    },
 ];
 
 // Example journals with call for papers
