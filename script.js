@@ -129,6 +129,7 @@ function addJournalPaper(container, paper) {
         paper.boldWords.forEach(word => {
             const regex = new RegExp(`\\b${word}\\b`, 'g');
             processedDescription = processedDescription.replace(regex, `<strong>${word}</strong>`);
+            processedAuthors = processedAuthors.replace(regex, `<strong>${word}</strong>`);
         });
     }
     
