@@ -386,7 +386,7 @@ const awards = [
         title: "National Special Prize",
         authors: "May 2023, Chinese Society of Optimization, Overall Planning and Economical Mathematics & Shanghai Jiaotong University",
         conference: "The 9th China University Student Energy Economy Academic Creativity Competition",
-        description: "Rank: 4/330. Awarded by Academician of Chinese Academy of Engineering"
+        description: "Rank: 4/3300. Awarded by Academician of Chinese Academy of Engineering"
     },
     {
         title: "National Third Prize",
