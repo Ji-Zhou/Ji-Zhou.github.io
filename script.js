@@ -141,14 +141,24 @@ function addJournalPaper(container, paper) {
 
 // Function to add a conference paper
 function addConferencePaper(container, paper) {
+    // Process authors and description to make "Ji Zhou" bold
+    let processedAuthors = paper.authors;
+    let processedDescription = paper.description;
+    
+    // Bold "Ji Zhou" in authors field
+    processedAuthors = processedAuthors.replace(/\bJi Zhou\b/g, '<strong>Ji Zhou</strong>');
+    
+    // Bold "Ji Zhou" in description field (for patents where "Inventor: Ji Zhou" appears)
+    processedDescription = processedDescription.replace(/\bJi Zhou\b/g, '<strong>Ji Zhou</strong>');
+    
     const paperElement = document.createElement('div');
     paperElement.className = 'paper-item conference-paper';
     paperElement.innerHTML = `
         <div class="paper-content">
             <h4>${paper.title}</h4>
-            <p>${paper.authors}</p>
+            <p>${processedAuthors}</p>
             <p>${paper.conference}</p>
-            <p>${paper.description}</p>
+            <p>${processedDescription}</p>
         </div>
     `;
     container.appendChild(paperElement);
