@@ -140,6 +140,7 @@ function addJournalPaper(container, paper) {
         <div class="paper-content">
             <h4>${paper.title}</h4>
             <p>${paper.authors}</p>
+            <p>${processedAuthors}</p>
             <p>${paper.journal}</p>
             <p>${processedDescription}</p>
         </div>
@@ -357,7 +358,8 @@ const patents = [
     {
         title: "Modular unmanned delivery terminal management software",
         authors: "Hongjie Li, Bingyan Pang, Ji Zhou",
-        description: "China, Patent (Software Copyright) No. 2022SR1514773"
+        conference: "China, Patent (Software Copyright)",
+        description: "No. 2022SR1514773"
     }
 ];
 
