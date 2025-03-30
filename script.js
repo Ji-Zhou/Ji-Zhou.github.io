@@ -49,13 +49,43 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Setup paper section toggles at the end of the file
 // This helps ensure the DOM is fully loaded and all elements exist
-window.addEventListener('load', function() {
-    // Give a small delay to ensure everything is loaded
-    setTimeout(function() {
-        console.log('Setting up paper section toggles after window load');
-        setupPaperSectionToggles();
-    }, 1000);
-});
+(function() {
+    // Cross-browser event listener
+    function addEvent(elem, event, fn) {
+        if (elem.addEventListener) {
+            elem.addEventListener(event, fn, false);
+        } else if (elem.attachEvent) {
+            // For IE8 and earlier
+            elem.attachEvent("on" + event, function() {
+                // Set the this keyword and call fn
+                return fn.call(elem, window.event);
+            });
+        }
+    }
+    
+    // Initialize when DOM is ready or window loads (whichever happens first)
+    var togglesInitialized = false;
+    
+    function initToggles() {
+        if (!togglesInitialized) {
+            togglesInitialized = true;
+            // Initialize with a delay to ensure DOM is ready
+            setTimeout(function() {
+                setupPaperSectionToggles();
+            }, 500);
+        }
+    }
+    
+    // Multiple event listeners for maximum compatibility
+    addEvent(window, 'load', initToggles);
+    addEvent(document, 'DOMContentLoaded', initToggles);
+    
+    // Fallback for older browsers
+    if (document.readyState === "complete" || document.readyState === "interactive") {
+        // DOM already ready
+        setTimeout(initToggles, 1);
+    }
+})();
 
 // Function to attach event listeners to journal items
 function attachJournalEvents() {
@@ -541,82 +571,53 @@ function setupResumeDownload() {
 function setupPaperSectionToggles() {
     console.log('Setting up toggle buttons...');
     
-    // Direct implementation instead of calling helper functions
-    // This approach is more straightforward and less prone to errors
-    
-    // Journal Papers toggle
-    const journalBtn = document.getElementById('toggle-journal-papers');
-    const journalContainer = document.querySelector('.journal-papers');
-    
-    if (journalBtn && journalContainer) {
-        console.log('Found journal papers toggle elements');
-        journalBtn.onclick = function() {
-            const isVisible = journalContainer.style.display !== 'none';
+    // Direct implementation with cross-browser compatibility fixes
+    setupToggleForSection('toggle-journal-papers', '.journal-papers', 'Papers');
+    setupToggleForSection('toggle-conference-papers', '.conference-papers', 'Papers');
+    setupToggleForSection('toggle-patents', '.patents', 'Patents');
+    setupToggleForSection('toggle-awards', '.awards', 'Awards');
+}
+
+// Function to setup a single toggle with cross-browser compatibility
+function setupToggleForSection(buttonId, containerSelector, itemType) {
+    try {
+        // Use legacy querySelector methods for IE compatibility
+        var btn = document.getElementById(buttonId);
+        var container = document.querySelector(containerSelector);
+        
+        if (!btn || !container) {
+            console.error('Missing elements for toggle:', buttonId, containerSelector);
+            return;
+        }
+        
+        console.log('Setting up toggle for:', buttonId);
+        
+        // Set initial state - ensure visible (IE compatible approach)
+        container.style.display = 'block';
+        
+        // Clear any existing event handlers (IE compatible)
+        if (btn.onclick) btn.onclick = null;
+        
+        // Add the event handler using compatible method
+        btn.onclick = function(e) {
+            // Get current display state
+            var isCurrentlyVisible = !(container.style.display === 'none');
             
-            if (isVisible) {
-                journalContainer.style.display = 'none';
-                journalBtn.textContent = 'Show Papers';
+            if (isCurrentlyVisible) {
+                // Currently visible, hide it
+                container.style.display = 'none';
+                btn.innerText = 'Show ' + itemType;
             } else {
-                journalContainer.style.display = 'block';
-                journalBtn.textContent = 'Hide Papers';
+                // Currently hidden, show it
+                container.style.display = 'block';
+                btn.innerText = 'Hide ' + itemType;
             }
-        };
-    }
-    
-    // Conference Papers toggle
-    const conferenceBtn = document.getElementById('toggle-conference-papers');
-    const conferenceContainer = document.querySelector('.conference-papers');
-    
-    if (conferenceBtn && conferenceContainer) {
-        console.log('Found conference papers toggle elements');
-        conferenceBtn.onclick = function() {
-            const isVisible = conferenceContainer.style.display !== 'none';
             
-            if (isVisible) {
-                conferenceContainer.style.display = 'none';
-                conferenceBtn.textContent = 'Show Papers';
-            } else {
-                conferenceContainer.style.display = 'block';
-                conferenceBtn.textContent = 'Hide Papers';
-            }
+            // For event compatibility
+            if (e && e.preventDefault) e.preventDefault();
+            return false; // For older browsers
         };
-    }
-    
-    // Patents toggle
-    const patentsBtn = document.getElementById('toggle-patents');
-    const patentsContainer = document.querySelector('.patents');
-    
-    if (patentsBtn && patentsContainer) {
-        console.log('Found patents toggle elements');
-        patentsBtn.onclick = function() {
-            const isVisible = patentsContainer.style.display !== 'none';
-            
-            if (isVisible) {
-                patentsContainer.style.display = 'none';
-                patentsBtn.textContent = 'Show Patents';
-            } else {
-                patentsContainer.style.display = 'block';
-                patentsBtn.textContent = 'Hide Patents';
-            }
-        };
-    }
-    
-    // Awards toggle
-    const awardsBtn = document.getElementById('toggle-awards');
-    const awardsContainer = document.querySelector('.awards');
-    
-    if (awardsBtn && awardsContainer) {
-        console.log('Found awards toggle elements');
-        awardsBtn.onclick = function() {
-            const isVisible = awardsContainer.style.display !== 'none';
-            
-            if (isVisible) {
-                awardsContainer.style.display = 'none';
-                awardsBtn.textContent = 'Show Awards';
-            } else {
-                awardsContainer.style.display = 'block';
-                awardsBtn.textContent = 'Hide Awards';
-            }
-        };
+    } catch (error) {
+        console.error('Error setting up toggle for ' + buttonId + ':', error);
     }
 } 
