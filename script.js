@@ -273,20 +273,36 @@ function addJournal(container, journal) {
 const journalPapers = [
     
     {
-        title: "A Multi-Level Framework for Collaborative Vehicle Trajectory Planning in Unstructured Road Environments",
-        authors: "Ji Zhou, Biao Xu, Yougang Bian, Hongmao Qin, Chen Wang, Nan Zheng",
-        journal: "Automation in Construction, Under Review",
+        title: "Collaborative Vehicle Trajectory Planning in Unstructured Road Environments",
+        authors: "On-going",
+        journal: "On-going",
         description: "Research Project in My Doctoral Study",
         image: "assets/papers/paper3.jpg",
         boldWords: ["Ji Zhou"]
     },
     
     {
-        title: "Autonomous Haulage System for Open-Pit Mining: A Bibliometric Analysis and Topic Modeling based Review",
-        authors: "Ji Zhou, Nan Zheng",
+        title: "Bibliometric Analysis and Topic Modeling based Review",
+        authors: "On-going",
         journal: "On-going",
         description: "Research Project in My Doctoral Study",
         image: "assets/papers/paper6.jpg",
+        boldWords: ["Ji Zhou"]
+    },
+    {
+        title: "Smart Modular Parcel Lockers for Last-Mile Delivery",
+        authors: "On-going",
+        journal: "On-going",
+        description: "Research Project in My Bachelor Study",
+        image: "assets/papers/paper4.jpg",
+        boldWords: ["Ji Zhou"]
+    },
+    {
+        title: "Motion Planning for Automated Mobile Robots",
+        authors: "On-going",
+        journal: "On-going",
+        description: "Research Project in My Bachelor Study",
+        image: "assets/papers/paper5.jpg",
         boldWords: ["Ji Zhou"]
     },
     {
@@ -305,22 +321,8 @@ const journalPapers = [
         image: "assets/papers/paper2.jpg",
         boldWords: ["Ji Zhou"]
     },
-    {
-        title: "Smart Modular Parcel Lockers as a Mean for Last-Mile Delivery: An Optimization Model and Solution Algorithm for Parcels Allocation and Lockers Configuration",
-        authors: "Ji Zhou, Senyan Yang, Chen Wang, Liang Zheng, Nan Zheng",
-        journal: "Engineering Applications of Artificial Intelligence, Under Review",
-        description: "Research Project in My Bachelor Study",
-        image: "assets/papers/paper4.jpg",
-        boldWords: ["Ji Zhou"]
-    },
-    {
-        title: "Collaborative Trajectory Planning for Non-Holonomic Automated Mobile Robots via Distributed Multi-Agent Proximal Policy Optimization",
-        authors: "Jingyi Yu, Ji Zhou",
-        journal: "Applied Soft Computing, Under Review",
-        description: "Research Project in My Bachelor Study",
-        image: "assets/papers/paper5.jpg",
-        boldWords: ["Ji Zhou"]
-    },
+    
+    
     
 
 
